@@ -1,0 +1,76 @@
+nav .brand-logo {padding-left: 10px;}
+p {text-align: justify;}
+h2 {padding-left: 10px;}
+blockquote b {padding-left: 8px;}
+.material-icons.md-18 {font-size: 18px;}
+.material-icons.md-24 {font-size: 24px;}
+.material-icons.md-36 {font-size: 36px;}
+.material-icons.md-48 {font-size: 48px;}
+.material-icons.md-dark {color: rgba(0, 0, 0, 0.54);}
+.material-icons.md-light {color: rgba(255, 255, 255, 1);}
+.parallax-top {height: 100%;}
+.center {text-align: center;}
+.welcome {margin-top: 100px;}
+.copyright {padding-left: 10px;}
+.termo {padding-right: 10px;}
+.btn-floating {top: 17px;}
+.button-block {background-color: transparent;}
+.h3-align {padding-left: 10px;}
+.character-counter {color: white;}
+.photo {margin-top: 10px; width: 100% !important; height: 100% !important; border-radius: 5px;}
+.image-link {margin-top: 4px;}
+.circle {border-radius: 5px;}
+.card.sticky-action .card-action {padding-bottom: 40px;}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {margin-right: 0;}
+.collection .collection-item.avatar i.circle {font-size: 40px;}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {color: #102051;}
+.card .card-action a:hover:not(.btn):not(.btn-large):not(.btn-floating) {color: #1D3F98;}
+footer.page-footer {padding-top: 40px;}
+.tabs .tab a:hover, .tabs .tab a.active {color: #1D3F98}
+.tabs .tab a {color: #102051;}
+.tabs .indicator {background-color: #1D3F98;}
+table.responsive-table {margin-top: 10px; margin-bottom: 10px;}
+.pagination li.active {background-color: #606060;}
+.side-nav {overflow-y: scroll;}
+.side-nav li {font-weight: bold;}
+.parallax-h2 {
+  height: 60px;
+  margin: 10px 10px 20px 10px;
+  color: white;
+  box-shadow: 0 5px 10px grey;
+  border-radius: 10px;
+  text-align: center;
+}
+.parallax-bottom {
+  height: 60px;
+  top: 21px;
+  margin-left: -3px;
+  box-shadow: 0 5px 10px black;
+}
+.background-color {
+  background: #555;
+  background: -webkit-linear-gradient(to left, black, #606060);
+  background: -o-linear-gradient(to left, black, #606060);
+  background: -moz-linear-gradient(to left, black, #606060);
+  background: linear-gradient(to left, black, #606060);
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+.chip {
+  font-size: 20px;
+  padding-left: 20px;
+  background-color: #515151;
+  box-shadow: 4px 4px 15px grey;
+}
+
+.chip:hover {
+  box-shadow: 4px 4px 15px black;
+}
