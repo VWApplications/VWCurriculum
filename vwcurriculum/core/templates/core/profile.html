@@ -1,0 +1,73 @@
+{% load static %}
+{% load i18n %}
+<div class="row">
+  <h2 class="parallax-container parallax-h2">
+    <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
+    {% trans 'Profile' %}
+  </h2>
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab col s6"><a class="active" href="#personal_information">{% trans 'Personal Informations' %}</a></li>
+              <li class="tab col s6"><a href="#professional_information">{% trans 'Professional Informations' %}</a></li>
+            </ul>
+          </div>
+          <div id="personal_information" class="col s12">
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th data-field="first_name">{% trans 'Name' %}</th>
+                  <th data-field="last_name">{% trans 'Last Name' %}</th>
+                  <th data-field="age">{% trans 'Age' %}</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>{{profile.first_name}}</td>
+                <td>{{profile.last_name}}</td>
+                <td>{{profile.age}}</td>
+              </tr>
+              </tbody>
+            </table>
+            <p><b>{% trans 'About me' %}:</b> {{profile.about|linebreaksbr}}</p>
+          </div>
+          <div id="professional_information" class="col s12">
+            <table class="highlight responsive-table hide-on-med-and-down">
+              <tbody>
+                <tr>
+                  <th>{% trans 'Current Work' %}:</th>
+                  <td>{{profile.current_work}}</td>
+                </tr>
+                <tr>
+                  <th>{% trans 'Academic Formation' %}:</th>
+                  <td>{{profile.academic_formation}}</td>
+                </tr>
+                <tr>
+                  <th>{% trans 'Courses' %}</th>
+                  <td>{{profile.course}}</td>
+                </tr>
+                <tr>
+                  <th>{% trans 'Languages' %}</th>
+                  <td>{{profile.languages}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="responsive-table hide-on-large-only">
+              <tbody>
+                <tr>
+                  <td>{{profile.current_work}}</td>
+                  <td>{{profile.academic_formation}}</td>
+                  <td>{{profile.course}}</td>
+                  <td>{{profile.languages}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

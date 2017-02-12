@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+    <title>{% trans 'VWCurriculum' %}</title>
+  </head>
+  <body>
+    <header>
+      {% include 'core/navbar.html' %}
+    </header>
+    <main>
+      {% block main %}{% endblock %}
+      <h2 class="parallax-container parallax-bottom center white-text">
+        <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
+        {% trans 'Contact' %}
+      </h2>
+    </main>
+    <footer class="page-footer background-color" id="contact">
+      {% include 'core/footer.html' %}
+    </footer>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large blue darken-3 waves-effect"><i class="large material-icons">link</i></a>
+      <ul>
+        <li><a class="btn-floating tooltipped" href="https://www.facebook.com/victor.arnaud.10" target="_blank" data-position="left" data-delay="50" data-tooltip="Facebook">
+          <img src="{% static 'core/img/facebook.png' %}" width="40" height="40" />
+        </a></li>
+        <li><a class="btn-floating tooltipped" href="https://br.linkedin.com/in/victorarnaud" target="_blank" data-position="left" data-delay="50" data-tooltip="LinkedIn">
+          <img src="{% static 'core/img/linkdin.png' %}" width="40" height="40" />
+        </a></li>
+        <li><a class="btn-floating grey tooltipped" href="https://github.com/VictorArnaud" target="_blank" data-position="left" data-delay="50" data-tooltip="GitHub">
+          <img src="{% static 'core/img/github.png' %}" width="40" height="40" />
+        </a></li>
+        <li><a class="btn-floating yellow darken-1 tooltipped" href="https://gitlab.com/victorhad" target="_blank" data-position="left" data-delay="50" data-tooltip="GitLab">
+          <img src="{% static 'core/img/gitlab.png' %}" width="40" height="40" />
+        </a></li>
+        <li><a class="btn-floating brown tooltipped" href="https://www.urionlinejudge.com.br/judge/pt/profile/136832" target="_blank" data-position="left" data-delay="50" data-tooltip="URI">
+          <i class="material-icons">code</i>
+        </a></li>
+       </ul>
+    </div>
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="{% static 'core/js/search.js' %}"></script>
+    <script src="{% static 'core/js/home.js' %}"></script>
+  </body>
+</html>

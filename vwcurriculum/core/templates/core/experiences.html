@@ -1,0 +1,58 @@
+{% load static %}
+{% load i18n %}
+<div class="row">
+  <h2 class="parallax-container parallax-h2">
+    <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
+    {% trans 'Experience' %}
+  </h2>
+  <div class="col s12 m12">
+    <div class="card">
+      <div class="card-content">
+        <div class="input-field">
+          <i class="material-icons prefix">search</i>
+          <input type="text" id="searchExperienceInput" onkeyup="searchExperience()" placeholder="{% trans 'Search Experience...' %}">
+        </div>
+        <ul class="collection" id="searchExperienceUL">
+          <li class="collection-item avatar">
+            <div class="row">
+              <div class="col s11">
+                <i class="material-icons circle blue darken-3">work</i>
+                <span class="title">Lappis</span>
+                <p>Setembro de 2016 até o momento</p>
+              </div>
+              <div class="col s1">
+                <a href="#modal-experience" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Experience' %}">
+                  <i class="material-icons">visibility</i>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- Modal Structure -->
+        <div id="modal-experience" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <h3>Lappis</h3>
+            <hr />
+            <p class="flow-text">Laboratorio Avançado de Projeto, Pesquisa e Inovação em Software</p>
+            <p>Janeiro de 2016 - Março de 2017 | UnB Gama | Bolsista</p>
+            <br />
+            <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
+            <p class="flow-text">Laboratorio de desenvolvimento de software livre utilizando metodologia ágil</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-action">
+        <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="active"><a href="#!">1</a></li>
+          <li class="waves-effect"><a href="#!">2</a></li>
+          <li class="waves-effect"><a href="#!">3</a></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

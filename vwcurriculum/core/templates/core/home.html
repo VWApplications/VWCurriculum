@@ -1,1 +1,38 @@
-<h1>Oi eu sou o goku</h1>
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block main %}
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'core/img/back1.jpg' %}">
+        <div class="caption center-align">
+          <h3>{% trans 'Welcome' %}</h3>
+          <h5 class="light grey-text text-lighten-3">{% trans 'Victor Arnaud\'s Portfolio' %}.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'core/img/back2.jpg' %}">
+        <div class="caption left-align">
+          <h3>{% trans 'Portfolio' %}</h3>
+          <h5 class="light grey-text text-lighten-3">{% trans 'Here you will find personal information, skills, projects, experiences and a field to contact' %}.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <section id="profile">
+    {% include 'core/profile.html' %}
+  </section>
+  <section id="skill">
+    {% include 'core/skills.html' %}
+  </section>
+  <section id="certificate">
+    {% include 'core/certificates.html' %}
+  </section>
+  <section id="project">
+    {% include 'core/projects.html' %}
+  </section>
+  <section id="experience">
+    {% include 'core/experiences.html' %}
+  </section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+{% load i18n %}
+<nav class="background-color">
+  <div class="nav-wrapper">
+    <span class="brand-logo"><i class="material-icons md-36">account_circle</i>{% trans 'VWCurriculum' %}</span>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="waves-effect right termo" href="/admin/"><i class="material-icons left">perm_identity</i>{% trans 'Login' %}</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+  <ul id="slide-out" class="side-nav fixed">
+    <li><div class="userView">
+      <div class="background">
+        <img src="{% static 'core/img/back1.jpg' %}" height="400">
+      </div>
+      <a href="https://br.linkedin.com/in/victorarnaud" target="_blank"><img class="photo" src="{{profile.photo.url}}"></a>
+      <div class="white-text center">Victor Arnaud</div>
+      <div class="white-text center">victorhad@gmail.com</div>
+    </div></li>
+    <li><a class="waves-effect" href="#profile"><i class="material-icons">account_box</i>{% trans 'Profile' %}</a></li>
+    <li><a class="waves-effect" href="#skill"><i class="material-icons">code</i>{% trans 'Skills' %}</a></li>
+    <li><a class="waves-effect" href="#certificate"><i class="material-icons">thumb_up</i>{% trans 'Certificates' %}</a></li>
+    <li><a class="waves-effect" href="#project"><i class="material-icons">web</i>{% trans 'Projects' %}</a></li>
+    <li><a class="waves-effect" href="#experience"><i class="material-icons">work</i>{% trans 'Experiences' %}</a></li>
+    <li><a class="waves-effect" href="#contact"><i class="material-icons">phone</i>{% trans 'Contact' %}</a></li>
+  </ul>
+</nav>
