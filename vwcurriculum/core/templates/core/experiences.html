@@ -20,10 +20,10 @@
                   <i class="material-icons circle blue darken-3">work</i>
                   <span class="title">{{experience}}</span>
                   {% if experience.is_current_job %}
-                    <p>{{experience.start_date}} {% trans 'until now' %}</p>
+                    <p class="grey-text text-darken-2">{{experience.start_date}} {% trans 'until now' %}</p>
                   {% else %}
-                    <p>{{experience.start_date}} até {{experience.end_date}}<p>
-                    <p>{% trans 'Completed' %}</p>
+                    <p class="grey-text text-darken-2">{{experience.start_date}} até {{experience.end_date}}</p>
+                    <p class="grey-text text-darken-2">{% trans 'Completed' %}</p>
                   {% endif %}
                 </div>
                 <div class="col s1">
@@ -46,13 +46,15 @@
                   <p class="flow-text">{{experience.short_title}}</p>
                 {% endif %}
                 {% if experience.is_current_job %}
-                <p>{{experience.start_date}} {% trans 'until now' %} | {{experience.location}}</p>
+                  <p class="grey-text text-darken-2">{{experience.start_date}} {% trans 'until now' %} | {{experience.location}}</p>
                 {% else %}
-                  <p>{{experience.start_date}} - {{experience.end_date}} | {{experience.location}}<p>
+                  <p class="grey-text text-darken-2">{{experience.start_date}} - {{experience.end_date}} | {{experience.location}}<p>
                 {% endif %}
                 <br />
                 <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
+                <br />
                 <p class="flow-text">{{experience.description|linebreaksbr}}</p>
+                <br />
                 {% if experience.files.exists %}
                   <ul class="collection with-header">
                     <li class="collection-header"><h4>{% trans 'Files' %}</h4></li>
