@@ -44,6 +44,16 @@ class Skill(models.Model):
   profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='skills')
   created_at = models.DateTimeField('Criado em', auto_now_add=True)
   updated_at = models.DateTimeField('Modificado em', auto_now=True)
+  DEFAULT = 'Outras'
+  CATEGORY = (
+    ('Linguagens', 'Linguagens'),
+    ('Framework', 'Framework'),
+    ('Design', 'Design'),
+    ('Devops', 'Devops'),
+    ('Governança de TI', 'Governança de TI'),
+    (DEFAULT, DEFAULT),
+  )
+  category = models.CharField('Categoria', max_length=100, choices=CATEGORY, default=DEFAULT)
 
   def __str__(self):
     return self.title
@@ -51,21 +61,27 @@ class Skill(models.Model):
   class Meta:
     verbose_name = 'Habilidade'
     verbose_name_plural = 'Habilidades'
-    ordering = ['priority', 'title', 'created_at']
+    ordering = ['priority', 'title', 'category', 'created_at']
 
 
 class Certificate(models.Model):
   title = models.CharField('Título', max_length=100)
   issuing_institution = models.CharField('Orgão Emissor', max_length=100)
-  license_number = models.CharField('Número de licença', max_length=100, blank=True, help_text='Número de licença do certificado')
   url = models.URLField('URL do certificado', blank=True, null=True)
-  document = models.ImageField(upload_to='documentos', verbose_name='Arquivo do certificado', blank=True, null=True)
-  issue_date = models.DateField('Data de emissão', blank=True, null=True, help_text='Data de emissão do certificado')
-  has_expired_date = models.BooleanField('Certificado tem data de expiração?', default=False)
-  expired_date = models.DateField('Data de expiração', blank=True, null=True, help_text='Data de expiração do certificado')
+  document = models.ImageField(upload_to='documentos', verbose_name='Arquivo do certificado')
   profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='certificates')
   created_at = models.DateTimeField('Criado em', auto_now_add=True)
   updated_at = models.DateTimeField('Modificado em', auto_now=True)
+  DEFAULT = 'Outras'
+  CATEGORY = (
+    ('Linguagens', 'Linguagens'),
+    ('Framework', 'Framework'),
+    ('Design', 'Design'),
+    ('Devops', 'Devops'),
+    ('Governança de TI', 'Governança de TI'),
+    (DEFAULT, DEFAULT),
+  )
+  category = models.CharField('Categoria', max_length=100, choices=CATEGORY, default=DEFAULT)
 
   def __str__(self):
     return self.title
@@ -73,7 +89,7 @@ class Certificate(models.Model):
   class Meta:
     verbose_name = 'Certificado'
     verbose_name_plural = 'Certificados'
-    ordering = ['title', 'issuing_institution', 'created_at']
+    ordering = ['title', 'issuing_institution', 'category', 'created_at']
 
 
 class Project(models.Model):

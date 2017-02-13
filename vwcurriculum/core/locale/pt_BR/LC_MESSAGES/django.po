@@ -1,0 +1,251 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-13 03:49-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: core/templates/core/base.html:11 core/templates/core/navbar.html:5
+msgid "VWCurriculum"
+msgstr ""
+
+#: core/templates/core/base.html:21 core/templates/core/navbar.html:29
+msgid "Contact"
+msgstr "Contato"
+
+#: core/templates/core/certificates.html:6 core/templates/core/navbar.html:26
+msgid "Certificates"
+msgstr "Certificados"
+
+#: core/templates/core/certificates.html:13
+msgid "Search Certificates..."
+msgstr "Pesquisar certificado"
+
+#: core/templates/core/certificates.html:21
+msgid "Title"
+msgstr "Título"
+
+#: core/templates/core/certificates.html:22
+msgid "Issuing organization"
+msgstr "Orgão emissor"
+
+#: core/templates/core/certificates.html:25
+msgid "View Certificate"
+msgstr "Ver Certificado"
+
+#: core/templates/core/certificates.html:42
+msgid "Link to certificate"
+msgstr "Link para o certificado"
+
+#: core/templates/core/certificates.html:46
+#: core/templates/core/certificates.html:50
+#: core/templates/core/experiences.html:76
+#: core/templates/core/experiences.html:80
+#: core/templates/core/projects.html:73 core/templates/core/projects.html:77
+#: core/templates/core/skills.html:30
+msgid "Close"
+msgstr "Fechar"
+
+#: core/templates/core/certificates.html:56
+msgid "There are no certificate registered"
+msgstr "Não há certificados"
+
+#: core/templates/core/experiences.html:6
+msgid "Experience"
+msgstr "Experiência"
+
+#: core/templates/core/experiences.html:13
+msgid "Search Experience..."
+msgstr "Pesquisar Experiência"
+
+#: core/templates/core/experiences.html:23
+#: core/templates/core/experiences.html:49
+#: core/templates/core/projects.html:23 core/templates/core/projects.html:46
+msgid "until now"
+msgstr "até o momento"
+
+#: core/templates/core/experiences.html:26
+msgid "Completed"
+msgstr "Concluido"
+
+#: core/templates/core/experiences.html:30
+msgid "View Experience"
+msgstr "Ver Experiência"
+
+#: core/templates/core/experiences.html:40
+msgid "Current job"
+msgstr "Trabalho atual"
+
+#: core/templates/core/experiences.html:54 core/templates/core/skills.html:26
+msgid "Description"
+msgstr "Descrição"
+
+#: core/templates/core/experiences.html:58
+#: core/templates/core/projects.html:55
+msgid "Files"
+msgstr "Arquivos"
+
+#: core/templates/core/experiences.html:61
+#: core/templates/core/projects.html:58
+msgid "Download"
+msgstr "Baixar"
+
+#: core/templates/core/experiences.html:72
+msgid "Link to event"
+msgstr "Link para o evento"
+
+#: core/templates/core/experiences.html:85
+msgid "There are no experience registered"
+msgstr "Não há experiência registrada"
+
+#: core/templates/core/footer.html:6
+msgid "Address"
+msgstr "Endereço"
+
+#: core/templates/core/footer.html:7 core/templates/core/footer.html:22
+msgid "Email"
+msgstr "Email"
+
+#: core/templates/core/footer.html:8
+msgid "Phone"
+msgstr "Telefone"
+
+#: core/templates/core/footer.html:17 core/templates/core/profile.html:22
+msgid "Name"
+msgstr "Nome"
+
+#: core/templates/core/footer.html:28
+msgid "Message"
+msgstr "Mensagem"
+
+#: core/templates/core/footer.html:32
+msgid "Send"
+msgstr "Enviar"
+
+#: core/templates/core/footer.html:37
+msgid "Made by"
+msgstr "Feito por"
+
+#: core/templates/core/home.html:10
+msgid "Welcome"
+msgstr "Bem-Vindo"
+
+#: core/templates/core/home.html:11
+msgid "Victor Arnaud\\"
+msgstr "Victor Arnaud"
+
+#: core/templates/core/home.html:17
+msgid "Portfolio"
+msgstr "Portifólio"
+
+#: core/templates/core/home.html:18
+msgid "Here you will find personal information, skills, projects, experiences and a field to contact"
+msgstr "Aqui você vai encontrar informações pessoais, habilidade, projetos, experiências e um campo para entrar em contato"
+
+#: core/templates/core/navbar.html:7
+msgid "Login"
+msgstr "Logar"
+
+#: core/templates/core/navbar.html:24 core/templates/core/profile.html:6
+msgid "Profile"
+msgstr "Perfil"
+
+#: core/templates/core/navbar.html:25 core/templates/core/skills.html:6
+msgid "Skills"
+msgstr "Habilidades"
+
+#: core/templates/core/navbar.html:27
+msgid "Projects"
+msgstr "Projetos"
+
+#: core/templates/core/navbar.html:28
+msgid "Experiences"
+msgstr "Experiências"
+
+#: core/templates/core/profile.html:14
+msgid "Personal Informations"
+msgstr "Informações Pessoais"
+
+#: core/templates/core/profile.html:15
+msgid "Professional Informations"
+msgstr "Informações Profissionais"
+
+#: core/templates/core/profile.html:23
+msgid "Last Name"
+msgstr "Sobrenome"
+
+#: core/templates/core/profile.html:24
+msgid "Age"
+msgstr "Idade"
+
+#: core/templates/core/profile.html:35
+msgid "About me"
+msgstr "Sobre mim"
+
+#: core/templates/core/profile.html:42
+msgid "Current Work"
+msgstr "Trabalho atual"
+
+#: core/templates/core/profile.html:46
+msgid "Academic Formation"
+msgstr "Formação Acadêmica"
+
+#: core/templates/core/profile.html:50
+msgid "Courses"
+msgstr "Cursos"
+
+#: core/templates/core/profile.html:54
+msgid "High School"
+msgstr "Ensino Médio"
+
+#: core/templates/core/profile.html:58
+msgid "Languages"
+msgstr "Idiomas"
+
+#: core/templates/core/projects.html:6
+msgid "Project"
+msgstr "Projeto"
+
+#: core/templates/core/projects.html:13
+msgid "Search projects..."
+msgstr "Pesquisar projetos"
+
+#: core/templates/core/projects.html:26 core/templates/core/projects.html:48
+msgid "until"
+msgstr "até"
+
+#: core/templates/core/projects.html:31
+msgid "View Project"
+msgstr "Ver projeto"
+
+#: core/templates/core/projects.html:41
+msgid "Project voluntary"
+msgstr "Projeto voluntario"
+
+#: core/templates/core/projects.html:69
+msgid "Link to project"
+msgstr "Link para o projeto"
+
+#: core/templates/core/projects.html:82
+msgid "There are no projects registered"
+msgstr "Não há projetos"
+
+#: core/templates/core/skills.html:19
+msgid "Level"
+msgstr "Nível"
+
+#: core/templates/core/skills.html:34
+msgid "There are no skills registered"
+msgstr "Não há habilidades registradas"

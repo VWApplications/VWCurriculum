@@ -17,15 +17,15 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 class SkillAdmin(admin.ModelAdmin):
-  list_display = ['title', 'priority', 'level', 'created_at']
+  list_display = ['title', 'priority', 'level', 'category', 'created_at']
   search_fields = ['title', 'description']
-  list_filter = ['created_at']
+  list_filter = ['created_at', 'category']
 
 
 class CertificateAdmin(admin.ModelAdmin):
-  list_display = ['title', 'issuing_institution', 'created_at']
+  list_display = ['title', 'issuing_institution', 'category', 'created_at']
   search_fields = ['title', 'issuing_institution']
-  list_filter = ['created_at']
+  list_filter = ['created_at', 'category']
 
 
 class ProjectAdmin(admin.ModelAdmin):
