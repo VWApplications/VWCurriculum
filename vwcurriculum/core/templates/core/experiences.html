@@ -13,44 +13,85 @@
           <input type="text" id="searchExperienceInput" onkeyup="searchExperience()" placeholder="{% trans 'Search Experience...' %}">
         </div>
         <ul class="collection" id="searchExperienceUL">
-          <li class="collection-item avatar">
-            <div class="row">
-              <div class="col s11">
-                <i class="material-icons circle blue darken-3">work</i>
-                <span class="title">Lappis</span>
-                <p>Setembro de 2016 até o momento</p>
+          {% for experience in experiences %}
+            <li class="collection-item avatar">
+              <div class="row">
+                <div class="col s11">
+                  <i class="material-icons circle blue darken-3">work</i>
+                  <span class="title">{{experience}}</span>
+                  {% if experience.is_current_job %}
+                    <p>{{experience.start_date}} {% trans 'until now' %}</p>
+                  {% else %}
+                    <p>{{experience.start_date}} até {{experience.end_date}}<p>
+                    <p>{% trans 'Completed' %}</p>
+                  {% endif %}
+                </div>
+                <div class="col s1">
+                  <a href="#{{experience.pk}}:experience" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Experience' %}">
+                    <i class="material-icons">visibility</i>
+                  </a>
+                </div>
               </div>
-              <div class="col s1">
-                <a href="#modal-experience" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Experience' %}">
-                  <i class="material-icons">visibility</i>
-                </a>
+            </li>
+            <!-- Modal Structure -->
+            <div id="{{experience.pk}}:experience" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <h3>{{experience}}</h3>
+                <hr />
+                {% if experience.short_title.exists %}
+                  <p class="flow-text">{{experience.short_title}}</p>
+                {% endif %}
+                {% if experience.is_current_job %}
+                <p>{{experience.start_date}} {% trans 'until now' %} | {{experience.location}}</p>
+                {% else %}
+                  <p>{{experience.start_date}} - {{experience.end_date}} | {{experience.location}}<p>
+                {% endif %}
+                <br />
+                <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
+                <p class="flow-text">{{experience.description|linebreaksbr}}</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
               </div>
             </div>
-          </li>
+          {% empty %}
+            <p>{% trans 'There are no experience registered' %}</p>
+          {% endfor %}
         </ul>
-        <!-- Modal Structure -->
-        <div id="modal-experience" class="modal modal-fixed-footer">
-          <div class="modal-content">
-            <h3>Lappis</h3>
-            <hr />
-            <p class="flow-text">Laboratorio Avançado de Projeto, Pesquisa e Inovação em Software</p>
-            <p>Janeiro de 2016 - Março de 2017 | UnB Gama | Bolsista</p>
-            <br />
-            <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
-            <p class="flow-text">Laboratorio de desenvolvimento de software livre utilizando metodologia ágil</p>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
-          </div>
-        </div>
       </div>
       <div class="card-action">
         <ul class="pagination">
-          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          <li class="active"><a href="#!">1</a></li>
-          <li class="waves-effect"><a href="#!">2</a></li>
-          <li class="waves-effect"><a href="#!">3</a></li>
-          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          {% if experiences.has_previous %}
+            <li class="waves-effect">
+              <a href="?page={{experiences.previous_page_number}}#experience">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="waves-effect disabled">
+              <a href="#experience">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+          {% endif %}
+          {% for page in experiences.paginator.page_range %}
+            <li class=" waves-effect {% if page == experiences.number %}active{% endif %}">
+              <a href="?page={{page}}#experience">{{page}}</a>
+            </li>
+          {% endfor %}
+          {% if experiences.has_next %}
+            <li class="waves-effect">
+              <a href="?page={{experiences.next_page_number}}#experience">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="waves-effect disabled">
+              <a href="#experience">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>

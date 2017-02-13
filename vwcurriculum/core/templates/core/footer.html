@@ -1,37 +1,38 @@
+{% load i18n %}
 <div class="row">
   <div class="col l5 s12">
     <ul>
       <blockquote>
-        <li class="white-text flow-text"><i class="material-icons">home</i><b>Endereço</b>: Brasília, DF</li>
-        <li class="white-text flow-text"><i class="material-icons">email</i><b>Email</b>: victorhad@gmail.com</li>
-        <li class="white-text flow-text"><i class="material-icons">phone</i><b>Telefone</b>: (61) 999824945</li>
+        <li class="white-text"><i class="material-icons">home</i><b>{% trans 'Address' %}</b>: {{profile.address}}</li>
+        <li class="white-text"><i class="material-icons">email</i><b>{% trans 'Email' %}</b>: {{user.email}}</li>
+        <li class="white-text"><i class="material-icons">phone</i><b>{% trans 'Phone' %}</b>: {{profile.phone}}</li>
       </blockquote>
     </ul>
   </div>
   <form class="col l7 s12">
     <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix md-light md-36">account_circle</i>
+        <i class="material-icons prefix md-light md-24">account_circle</i>
         <input id="name" type="text" class="validate white-text" name="name" length="50">
-        <label for="name" data-error="wrong" data-success="right"><span class="flow-text">Nome</span></label>
+        <label for="name" data-error="wrong" data-success="right">{% trans 'Name' %}</label>
       </div>
       <div class="input-field col s6">
-        <i class="material-icons prefix md-light md-36">email</i>
+        <i class="material-icons prefix md-light md-24">email</i>
         <input id="email" type="email" class="validate white-text" name="email" length="50">
-        <label for="email" data-error="wrong" data-success="right"><span class="flow-text">Email</span></label>
+        <label for="email" data-error="wrong" data-success="right">{% trans 'Email' %}</label>
       </div>
     </div>
     <div class="input-field col s12">
-      <i class="material-icons prefix md-light md-36">message</i>
+      <i class="material-icons prefix md-light md-24">message</i>
       <textarea id="textarea" class="materialize-textarea white-text" name="comment" rows="5" length="300"></textarea>
-      <label for="textarea" data-error="wrong" data-success="right"><span class="flow-text">Mensagem</span></label>
+      <label for="textarea" data-error="wrong" data-success="right">{% trans 'Message' %}</label>
     </div>
     <button class="waves-effect waves-light btn button-block" type="submit">
       <i class="material-icons left">send</i>
-      Enviar
+      {% trans 'Send' %}
     </button>
   </form>
 </div>
 <div class="footer-copyright">
-  <span class="copyright flow-text grey-text"><a href="#">© 2017 Copyright</a> | Site feito por <a href="#">Victor Arnaud</a> |</span>
+  <span class="copyright grey-text">{% trans 'Made by' %} <a href="https://github.com/VictorArnaud" target="_blank">Victor Arnaud</a></span>
 </div>

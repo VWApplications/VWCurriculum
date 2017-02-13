@@ -35,4 +35,20 @@
   <section id="experience">
     {% include 'core/experiences.html' %}
   </section>
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue darken-3 waves-effect"><i class="large material-icons">link</i></a>
+    <ul>
+      {% for link in profile.links.all %}
+        {% if link.icon %}
+          <li><a class="btn-floating tooltipped" href="{{link}}" target="_blank" data-position="left" data-delay="50" data-tooltip="{{link.title}}">
+            <img src="{{link.icon.url}}" width="40" height="40" />
+          </a></li>
+        {% else %}
+          <li><a class="btn-floating tooltipped" href="{{link}}" target="_blank" data-position="left" data-delay="50" data-tooltip="{{link.title}}">
+            <img src="{% static 'core/img/link.png' %}" width="40" height="40" />
+          </a></li>
+        {% endif %}
+      {% endfor %}
+     </ul>
+  </div>
 {% endblock %}

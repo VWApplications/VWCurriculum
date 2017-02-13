@@ -28,11 +28,12 @@
               <tr>
                 <td>{{profile.first_name}}</td>
                 <td>{{profile.last_name}}</td>
-                <td>{{profile.age}}</td>
+                <td>{{profile.get_age}}</td>
               </tr>
               </tbody>
             </table>
-            <p><b>{% trans 'About me' %}:</b> {{profile.about|linebreaksbr}}</p>
+            <p><b>{% trans 'About me' %}:</b></p><br />
+            <p>{{profile.about|linebreaksbr}}</p>
           </div>
           <div id="professional_information" class="col s12">
             <table class="highlight responsive-table hide-on-med-and-down">
@@ -48,6 +49,10 @@
                 <tr>
                   <th>{% trans 'Courses' %}</th>
                   <td>{{profile.course}}</td>
+                </tr>
+                <tr>
+                  <th>{% trans 'High School' %}</th>
+                  <td>{{profile.school_formation}}</td>
                 </tr>
                 <tr>
                   <th>{% trans 'Languages' %}</th>

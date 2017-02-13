@@ -9,8 +9,10 @@
     <div class="card">
       <div class="card-content">
         {% for skill in skills %}
-          <div class="chip"><img src="{% static 'core/img/code.png' %}" alt="{{skill}}"><a href="#{{skill.pk}}" class="modal-trigger waves-effect waves-light">{{skill}}</a></div>
-          <div id="{{skill.pk}}" class="modal modal-fixed-footer">
+          <div class="chip"><img src="{% static 'core/img/code.png' %}" alt="{{skill}}">
+            <a href="#{{skill.pk}}:skill" class="modal-trigger waves-effect waves-light">{{skill}}</a>
+          </div>
+          <div id="{{skill.pk}}:skill" class="modal modal-fixed-footer">
             <div class="modal-content">
               <h4>{{skill}}</h4>
               <hr />
@@ -34,6 +36,12 @@
                 <i class="material-icons">chevron_left</i>
               </a>
             </li>
+          {% else %}
+            <li class="waves-effect disabled">
+              <a href="#skill">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
           {% endif %}
           {% for page in skills.paginator.page_range %}
             <li class=" waves-effect {% if page == skills.number %}active{% endif %}">
@@ -41,11 +49,17 @@
             </li>
           {% endfor %}
           {% if skills.has_next %}
-          <li class="waves-effect">
-            <a href="?page={{skills.next_page_number}}#skill">
-              <i class="material-icons">chevron_right</i>
-            </a>
-          </li>
+            <li class="waves-effect">
+              <a href="?page={{skills.next_page_number}}#skill">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="waves-effect disabled">
+              <a href="#skill">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
           {% endif %}
         </ul>
       </div>

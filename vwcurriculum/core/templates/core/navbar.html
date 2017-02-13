@@ -13,9 +13,13 @@
       <div class="background">
         <img src="{% static 'core/img/back1.jpg' %}" height="400">
       </div>
-      <a href="https://br.linkedin.com/in/victorarnaud" target="_blank"><img class="photo" src="{{profile.photo.url}}"></a>
-      <div class="white-text center">Victor Arnaud</div>
-      <div class="white-text center">victorhad@gmail.com</div>
+      {% if profile.photo %}
+        <a href="https://br.linkedin.com/in/victorarnaud" target="_blank"><img class="photo" src="{{profile.photo.url}}"></a>
+      {% else %}
+        <a href="https://br.linkedin.com/in/victorarnaud" target="_blank"><img class="photo" src="{% static 'core/img/eu.jpg' %}"></a>
+      {% endif %}
+      <div class="white-text center">{{user.first_name}}</div>
+      <div class="white-text center">{{user.email}}</div>
     </div></li>
     <li><a class="waves-effect" href="#profile"><i class="material-icons">account_box</i>{% trans 'Profile' %}</a></li>
     <li><a class="waves-effect" href="#skill"><i class="material-icons">code</i>{% trans 'Skills' %}</a></li>

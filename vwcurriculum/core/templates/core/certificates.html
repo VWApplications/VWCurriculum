@@ -13,40 +13,70 @@
           <input type="text" id="searchCertificateInput" onkeyup="searchCertificate()" placeholder="{% trans 'Search Certificates...' %}">
         </div>
         <ul class="collection" id="searchCertificateUL">
-          <li class="collection-item avatar">
-            <div class="row">
-              <div class="col s11">
-                <i class="material-icons circle blue darken-3">stars</i>
-                <span class="title"><b>{% trans 'Title' %}:</b> UML</span>
-                <p><b>{% trans 'Issuing organization' %}:</b> Alura</p>
+          {% for certificate in certificates %}
+            <li class="collection-item avatar">
+              <div class="row">
+                <div class="col s11">
+                  <i class="material-icons circle blue darken-3">stars</i>
+                  <span class="title"><b>{% trans 'Title' %}:</b> {{certificate}}</span>
+                  <p><b>{% trans 'Issuing organization' %}:</b> {{certificate.issuing_institution}}</p>
+                </div>
+                <div class="col s1">
+                  <a href="#{{certificate.pk}}:certificate" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Certificate' %}">
+                    <i class="material-icons">visibility</i>
+                  </a>
+                </div>
               </div>
-              <div class="col s1">
-                <a href="#modal-certificate" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="View Certificate' %}">
-                  <i class="material-icons">visibility</i>
-                </a>
+              <!-- Modal Structure -->
+              <div id="{{certificate.pk}}:certificate" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                  <a href="{{certificate.url}}" target="_blank">
+                    <img src="{{certificate.document.url}}" alt="{{certificate}}" class="responsive-img photo" />
+                  </a>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          {% empty %}
+            <p>{% trans 'There are no certificate registered' %}</p>
+          {% endfor %}
         </ul>
-        <!-- Modal Structure -->
-        <div id="modal-certificate" class="modal modal-fixed-footer">
-          <div class="modal-content">
-            <a href="http://www.alura.com.br/certificate/4f3e4b15f3f7d8dd7f3eebd9026fef6b" target="_blank">
-              <img src="{% static 'core/img/uml.png' %}" alt="{% trans 'certificate' %}" class="responsive-img photo" />
-            </a>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
-          </div>
-        </div>
       </div>
       <div class="card-action">
         <ul class="pagination">
-          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          <li class="active"><a href="#!">1</a></li>
-          <li class="waves-effect"><a href="#!">2</a></li>
-          <li class="waves-effect"><a href="#!">3</a></li>
-          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          {% if certificates.has_previous %}
+            <li class="waves-effect">
+              <a href="?page={{certificates.previous_page_number}}#certificate">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="waves-effect disabled">
+              <a href="#certificate">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+          {% endif %}
+          {% for page in certificates.paginator.page_range %}
+            <li class=" waves-effect {% if page == certificates.number %}active{% endif %}">
+              <a href="?page={{page}}#certificate">{{page}}</a>
+            </li>
+          {% endfor %}
+          {% if certificates.has_next %}
+            <li class="waves-effect">
+              <a href="?page={{certificates.next_page_number}}#certificate">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="waves-effect disabled">
+              <a href="#certificate">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>
