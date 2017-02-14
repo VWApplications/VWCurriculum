@@ -3,16 +3,22 @@
 <div class="row">
   <h2 class="parallax-container parallax-h2">
     <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
-    {% trans 'Experience' %}
+    {% trans 'Experiences' %}
   </h2>
   <div class="col s12 m12">
     <div class="card">
       <div class="card-content">
-        <div class="input-field">
-          <i class="material-icons prefix">search</i>
-          <input type="text" id="searchExperienceInput" onkeyup="searchExperience()" placeholder="{% trans 'Search Experience...' %}">
-        </div>
-        <ul class="collection" id="searchExperienceUL">
+        <form method="GET" action="#experience" accept-charset="utf-8">
+          <div class="row">
+            <div class="input-field">
+              <input type="text" class="input-search" name="q_experience" value="{{request.GET.q_experience}}" placeholder="{% trans 'Search Experience...' %}">
+            </div>
+            <div>
+              <button type="submit" class="btn btn-search"><i class="material-icons search-icon">search</i></button>
+            </div>
+          </div>
+        </form>
+        <ul class="collection">
           {% for experience in experiences %}
             <li class="collection-item avatar">
               <div class="row">

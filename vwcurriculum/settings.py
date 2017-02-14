@@ -118,3 +118,13 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Victor Arnaud: <victorhad@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'victorhad@gmail.com'
+EMAIL_HOST_PASSWORD = '***'
+EMAIL_PORT = 587
+CONTACT_EMAIL = 'victorhad@gmail.com'

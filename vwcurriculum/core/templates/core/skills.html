@@ -10,14 +10,15 @@
       <div class="card-content">
         <div class="row">
         {% for skill in skills %}
-          <div class="col s4">
-            <div class="chip"><img src="{% static 'core/img/code.png' %}" alt="{{skill}}">
-              <a href="#{{skill.pk}}:skill" class="modal-trigger waves-effect waves-light">{{skill}}</a>
-            </div>
+          <div class="col s12 m4">
+            <a href="#{{skill.pk}}:skill"><div class="chip"><img src="{% static 'core/img/code.png' %}" alt="{{skill}}">
+              <a href="#{{skill.pk}}:skill" class="modal-trigger waves-effect waves-light truncate">{{skill}}</a>
+            </div></a>
           </div>
           <div id="{{skill.pk}}:skill" class="modal modal-fixed-footer">
             <div class="modal-content">
               <h4>{{skill}}<span class="badge">{{skill.category}}</span></h4>
+              <br />
               <hr />
               <p class="flow-text"><b>{% trans 'Level' %}:</b>
                 {% with ''|center:skill.level as range %}
@@ -26,6 +27,7 @@
                   {% endfor %}
                 {% endwith %}
               </p>
+              <br />
               <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
               <p class="flow-text">{{skill.description|linebreaksbr}}</p>
             </div>
@@ -73,15 +75,15 @@
           {% endif %}
         </ul>
         <div class="row right">
-          <a class='dropdown-button btn' href='#' data-activates='dropdown_category'>Categorias</a>
-          <ul id='dropdown_category' class='dropdown-content'>
-            <li><a href="?category=all#skill">Todos</a></li>
-            <li><a href="?category=Linguagens#skill">Linguagens</a></li>
-            <li><a href="?category=Framework#skill">Framework</a></li>
-            <li><a href="?category=Design#skill">Design</a></li>
-            <li><a href="?category=Devops#skill">Devops</a></li>
-            <li><a href="?category=Governanca#skill">Governança</a></li>
-            <li><a href="?category=Outras#skill">Outras</a></li>
+          <a class='dropdown-button btn' href='#skills' data-activates='dropdown_skill_category'>Categorias</a>
+          <ul id='dropdown_skill_category' class='dropdown-content'>
+            <li><a href="{% url 'core:home' %}#skill">Todos</a></li>
+            <li><a href="?skill_category=Linguagens#skill">Linguagens</a></li>
+            <li><a href="?skill_category=Framework#skill">Framework</a></li>
+            <li><a href="?skill_category=Design#skill">Design</a></li>
+            <li><a href="?skill_category=Devops#skill">Devops</a></li>
+            <li><a href="?skill_category=Governanca#skill">Governança</a></li>
+            <li><a href="?skill_category=Outras#skill">Outras</a></li>
           </ul>
         </div>
       </div>

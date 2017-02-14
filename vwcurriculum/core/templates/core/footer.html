@@ -9,23 +9,37 @@
       </blockquote>
     </ul>
   </div>
-  <form class="col l7 s12">
+  <form method="post" action="#contact" class="col l7 s12">
+    {% csrf_token %}
+    {% if form.errors %}
+      <div class="card-panel teal lighten-2">{{form.non_field_errors}}</div>
+    {% endif %}
+    {% if messages %}
+      <div class="card-panel teal lighten-2">
+        {% for message in messages %}
+          <span>{{message}}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix md-light md-24">account_circle</i>
         <input id="name" type="text" class="validate white-text" name="name" length="50">
         <label for="name" data-error="wrong" data-success="right">{% trans 'Name' %}</label>
+        {{form.name.errors}}
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix md-light md-24">email</i>
         <input id="email" type="email" class="validate white-text" name="email" length="50">
         <label for="email" data-error="wrong" data-success="right">{% trans 'Email' %}</label>
+        {{form.email.errors}}
       </div>
     </div>
     <div class="input-field col s12">
       <i class="material-icons prefix md-light md-24">message</i>
-      <textarea id="textarea" class="materialize-textarea white-text" name="comment" rows="5" length="300"></textarea>
+      <textarea id="textarea" class="materialize-textarea white-text" name="message" rows="5" length="300"></textarea>
       <label for="textarea" data-error="wrong" data-success="right">{% trans 'Message' %}</label>
+      {{form.message.errors}}
     </div>
     <button class="waves-effect waves-light btn button-block" type="submit">
       <i class="material-icons left">send</i>
