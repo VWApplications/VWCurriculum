@@ -16,26 +16,16 @@
             </ul>
           </div>
           <div id="personal_information" class="col s12">
-            <table class="responsive-table">
-              <thead>
-                <tr>
-                  <th data-field="first_name">{% trans 'Name' %}</th>
-                  <th data-field="last_name">{% trans 'Last Name' %}</th>
-                  <th data-field="age">{% trans 'Age' %}</th>
-                </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>{{profile.first_name}}</td>
-                <td>{{profile.last_name}}</td>
-                <td>{{profile.get_age}}</td>
-              </tr>
-              </tbody>
-            </table>
-            <p><b>{% trans 'About me' %}:</b></p><br />
-            <p>{{profile.about|linebreaksbr}}</p>
+            <h2>{{profile.first_name}} {{profile.last_name}}<span class="badge">{{profile.get_age}} {% trans 'years old' %}</span></h2>
+            <p class="grey-text text-darken-2">{{profile.tags}} | {{profile.address}}</p>
+
+            <div class="card about">
+              <p class="flow-text"><b>{% trans 'About me' %}:</b></p>
+              <p>{{profile.about|linebreaksbr}}</p>
+            </div>
           </div>
           <div id="professional_information" class="col s12">
+            <h2>{{profile.first_name}} {{profile.last_name}}<span class="badge">{{profile.get_age}} {% trans 'years old' %}</span></h2>
             <table class="highlight responsive-table hide-on-med-and-down">
               <tbody>
                 <tr>
@@ -70,6 +60,22 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="section">
+            <h2 class="center-align">{% trans 'Areas of interest' %}</h2>
+            <div class="row">
+              {% for interest in profile.interests.all %}
+                <div class="col s12 m4">
+                  <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="{{interest.fa_icon}} icon-color icon-size"></i></h2>
+                    <h5 class="center">{{interest.title}}</h5>
+                    <p class="light">{{interest.description}}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>

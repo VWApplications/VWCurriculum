@@ -18,14 +18,14 @@
       {% else %}
         <a href="https://br.linkedin.com/in/victorarnaud" target="_blank"><img class="photo" src="{% static 'core/img/eu.jpg' %}"></a>
       {% endif %}
-      <div class="white-text center">{{user.first_name}}</div>
-      <div class="white-text center">{{user.email}}</div>
+      <div class="white-text center">Victor Arnaud</div>
+      <div class="white-text center">{{profile.email}}</div>
     </div></li>
-    <li><a class="waves-effect" href="#profile"><i class="material-icons">account_box</i>{% trans 'Profile' %}</a></li>
-    <li><a class="waves-effect" href="#skill"><i class="material-icons">code</i>{% trans 'Skills' %}</a></li>
-    <li><a class="waves-effect" href="#certificate"><i class="material-icons">thumb_up</i>{% trans 'Certificates' %}</a></li>
-    <li><a class="waves-effect" href="#project"><i class="material-icons">web</i>{% trans 'Projects' %}</a></li>
-    <li><a class="waves-effect" href="#experience"><i class="material-icons">work</i>{% trans 'Experiences' %}</a></li>
-    <li><a class="waves-effect" href="#contact"><i class="material-icons">phone</i>{% trans 'Contact' %}</a></li>
+    <li><a class="waves-effect" href="#profile"><i class="fa fa-id-card icon-color"></i>{% trans 'Profile' %}</a></li>
+    <li><a class="waves-effect" href="#skill"><i class="fa fa-code icon-color"></i>{% trans 'Skills' %}</a></li>
+    <li><a class="waves-effect" href="#certificate"><i class="material-icons icon-color">thumb_up</i>{% trans 'Certificates' %}</a></li>
+    <li><a class="waves-effect" href="#project"><i class="fa fa-bar-chart icon-color"></i>{% trans 'Projects' %}</a></li>
+    <li><a class="waves-effect" href="#experience"><i class="fa fa-briefcase icon-color"></i>{% trans 'Experiences' %}</a></li>
+    <li><a class="waves-effect" href="#contact"><i class="fa fa-comment icon-color"></i>{% trans 'Contact' %}</a></li>
   </ul>
 </nav>

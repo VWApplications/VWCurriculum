@@ -6,6 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Profile(models.Model):
   first_name = models.CharField('Nome', max_length=100)
   last_name = models.CharField('Sobrenome', max_length=100)
+  email = models.EmailField('Email')
   date_of_birth = models.DateField('Data de nascimento')
   about = models.TextField('Sobre mim', blank=True)
   current_work = models.CharField('Trabalho Atual', max_length=100, blank=True, default="Disponível")
@@ -16,6 +17,7 @@ class Profile(models.Model):
   address = models.CharField('Endereço', max_length=100, blank=True)
   phone = models.CharField('Telefone', max_length=100, blank=True)
   photo = models.ImageField(upload_to='imagens', verbose_name="Foto", blank=True, null=True)
+  tags = models.CharField('Tags', max_length=100, blank=True)
 
   def get_age(self):
     today = datetime.date.today()
@@ -159,10 +161,26 @@ class File(models.Model):
     ordering = ['title']
 
 
+class Interest(models.Model):
+  title = models.CharField('Área de Interesse', max_length=100)
+  description = models.TextField('Descrição')
+  profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='interests')
+  fa_icon = models.CharField('Icone Font Awesome', max_length=100, blank=True, help_text='Inserir os icones do font awesome em http://fontawesome.io/ ou http://www.w3schools.com/icons/fontawesome_icons_intro.asp')
+  created_at = models.DateTimeField('Criado em', auto_now_add=True)
+  updated_at = models.DateTimeField('Modificado em', auto_now=True)
+
+  def __str__(self):
+    return self.title
+
+  class Meta:
+    verbose_name = 'Área de Interesse'
+    verbose_name_plural = 'Áreas de interesse'
+    ordering = ['title']
+
 class Link(models.Model):
   title = models.CharField('Título', max_length=100)
   link = models.URLField('Link')
-  icon = models.ImageField(upload_to='images', verbose_name='Icone', blank=True, null=True)
+  fa_icon = models.CharField('Icone Font Awesome', max_length=100, blank=True, help_text='Inserir os icones do font awesome em http://fontawesome.io/ ou http://www.w3schools.com/icons/fontawesome_icons_intro.asp')
   profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='links')
 
   def __str__(self):

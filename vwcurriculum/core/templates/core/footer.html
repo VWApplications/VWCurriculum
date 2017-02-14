@@ -4,7 +4,7 @@
     <ul>
       <blockquote>
         <li class="white-text"><i class="material-icons">home</i><b>{% trans 'Address' %}</b>: {{profile.address}}</li>
-        <li class="white-text"><i class="material-icons">email</i><b>{% trans 'Email' %}</b>: {{user.email}}</li>
+        <li class="white-text"><i class="material-icons">email</i><b>{% trans 'Email' %}</b>: {{profile.email}}</li>
         <li class="white-text"><i class="material-icons">phone</i><b>{% trans 'Phone' %}</b>: {{profile.phone}}</li>
       </blockquote>
     </ul>
@@ -48,5 +48,6 @@
   </form>
 </div>
 <div class="footer-copyright">
+  <a class="tooltipped top" href="" data-position="bottom" data-delay="50" data-tooltip="Ir para o topo da página"><i class="fa fa-chevron-up icon-color"></i></a>
   <span class="copyright grey-text">{% trans 'Made by' %} <a href="https://github.com/VictorArnaud" target="_blank">Victor Arnaud</a></span>
 </div>

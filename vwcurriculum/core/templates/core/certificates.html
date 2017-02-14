@@ -14,7 +14,7 @@
               <input type="text" class="input-search" name="q_certificate" value="{{request.GET.q_certificate}}" placeholder="{% trans 'Search Certificates...' %}">
             </div>
             <div>
-              <button type="submit" class="btn btn-search"><i class="material-icons search-icon">search</i></button>
+              <button type="submit" class="btn btn-search teal darken-3"><i class="material-icons search-icon">search</i></button>
             </div>
           </div>
         </form>
@@ -23,13 +23,13 @@
             <li class="collection-item avatar">
               <div class="row">
                 <div class="col s11">
-                  <i class="material-icons circle blue darken-3">stars</i>
+                  <i class="material-icons circle teal darken-3">stars</i>
                   <span class="title"><b>{% trans 'Title' %}:</b> {{certificate}}</span>
                   <p><b>{% trans 'Issuing organization' %}:</b> {{certificate.issuing_institution}}</p>
                 </div>
                 <div class="col s1">
                   <a href="#{{certificate.pk}}:certificate" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Certificate' %}">
-                    <i class="material-icons">visibility</i>
+                    <i class="fa fa-eye icon-color"></i>
                   </a>
                 </div>
               </div>
@@ -37,24 +37,23 @@
               <div id="{{certificate.pk}}:certificate" class="modal modal-fixed-footer">
                 <div class="modal-content">
                   <h4>{{certificate}}<span class="badge">{{certificate.category}}</span></h4>
-                  <br />
-                  <hr />
+                  <div class="divider"></div>
                   <img src="{{certificate.document.url}}" alt="{{certificate}}" class="responsive-img photo materialboxed"/>
                 </div>
                 <div class="modal-footer">
                   {% if certificate.url %}
                     <div class="row">
                       <div class="col s12 m6">
-                        <a href="{{certificate.url}}" class="modal-action waves-effect waves-green btn blue darken-3 left" target="_blank">
+                        <a href="{{certificate.url}}" class="modal-action waves-effect waves-green btn teal darken-3 left link-modal" target="_blank">
                           <i class="material-icons left">link</i>{% trans 'Link to certificate' %}
                         </a>
                       </div>
                       <div class="col s12 m6">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3" width="100%"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3" width="100%"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
                       </div>
                     </div>
                   {% else %}
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
                   {% endif %}
                 </div>
               </div>
@@ -69,13 +68,13 @@
           {% if certificates.has_previous %}
             <li class="waves-effect">
               <a href="?page={{certificates.previous_page_number}}#certificate">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-icons icon-color">chevron_left</i>
               </a>
             </li>
           {% else %}
             <li class="waves-effect disabled">
               <a href="#certificate">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-icons icon-color">chevron_left</i>
               </a>
             </li>
           {% endif %}
@@ -87,19 +86,19 @@
           {% if certificates.has_next %}
             <li class="waves-effect">
               <a href="?page={{certificates.next_page_number}}#certificate">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-icons icon-color">chevron_right</i>
               </a>
             </li>
           {% else %}
             <li class="waves-effect disabled">
               <a href="#certificate">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-icons icon-color">chevron_right</i>
               </a>
             </li>
           {% endif %}
         </ul>
         <div class="row right">
-          <a class='dropdown-button btn' href='#certificates' data-activates='dropdown_certificate_category'>Categorias</a>
+          <a class='dropdown-button btn teal darken-3' href='#certificates' data-activates='dropdown_certificate_category'>Categorias</a>
           <ul id='dropdown_certificate_category' class='dropdown-content'>
             <li><a href="{% url 'core:home' %}#certificate">Todos</a></li>
             <li><a href="?certificate_category=Linguagens#certificate">Linguagens</a></li>

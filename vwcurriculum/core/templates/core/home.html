@@ -6,9 +6,15 @@
     <ul class="slides">
       <li>
         <img src="{% static 'core/img/back1.jpg' %}">
-        <div class="caption center-align">
+        <div class="caption center-align palavras-home">
           <h3>{% trans 'Welcome' %}</h3>
           <h5 class="light grey-text text-lighten-3">{% trans 'Victor Arnaud\'s Portfolio' %}.</h5>
+          <p class="palavra-home mobile">Mobile</p>
+          <p class="palavra-home web">Web</p>
+          <p class="palavra-home system">Sistemas Embarcados</p>
+          <p class="palavra-home intelligent">Inteligencia Artificial</p>
+          <p class="palavra-home design">Design e UX</p>
+          <p class="palavra-home games">Jogos</p>
         </div>
       </li>
       <li>
@@ -36,16 +42,16 @@
     {% include 'core/experiences.html' %}
   </section>
   <div class="fixed-action-btn">
-    <a class="btn-floating btn-large waves-effect"><i class="large material-icons">link</i></a>
+    <a class="btn-floating btn-large waves-effect teal darken-3"><i class="large material-icons">link</i></a>
     <ul>
       {% for link in profile.links.all %}
-        {% if link.icon %}
-          <li><a class="btn-floating tooltipped" href="{{link}}" target="_blank" data-position="left" data-delay="50" data-tooltip="{{link.title}}">
-            <img src="{{link.icon.url}}" width="40" height="40" />
+        {% if link.fa_icon %}
+          <li><a class="btn-floating tooltipped teal darken-3" href="{{link}}" target="_blank" data-position="left" data-delay="50" data-tooltip="{{link.title}}">
+            <i class="{{link.fa_icon}}" style="font-size:30px"></i>
           </a></li>
         {% else %}
-          <li><a class="btn-floating tooltipped" href="{{link}}" target="_blank" data-position="left" data-delay="50" data-tooltip="{{link.title}}">
-            <img src="{% static 'core/img/link.png' %}" width="40" height="40" />
+          <li><a class="btn-floating tooltipped teal darken-3" href="{{link}}" target="_blank" data-position="left" data-delay="50" data-tooltip="{{link.title}}">
+            <i class="fa fa-link" style="font-size:30px"></i>
           </a></li>
         {% endif %}
       {% endfor %}

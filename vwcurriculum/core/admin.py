@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Link, File, Skill, Certificate, Project, Experience
+from .models import Profile, Link, File, Skill, Certificate, Project, Experience, Interest
 
 
 class LinkInlineAdmin(admin.StackedInline):
@@ -47,3 +47,4 @@ admin.site.register(Skill, SkillAdmin)
 admin.site.register(Certificate, CertificateAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Experience, ExperienceAdmin)
+admin.site.register(Interest)

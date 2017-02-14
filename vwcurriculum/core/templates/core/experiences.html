@@ -14,7 +14,7 @@
               <input type="text" class="input-search" name="q_experience" value="{{request.GET.q_experience}}" placeholder="{% trans 'Search Experience...' %}">
             </div>
             <div>
-              <button type="submit" class="btn btn-search"><i class="material-icons search-icon">search</i></button>
+              <button type="submit" class="btn btn-search teal darken-3"><i class="material-icons search-icon">search</i></button>
             </div>
           </div>
         </form>
@@ -23,7 +23,7 @@
             <li class="collection-item avatar">
               <div class="row">
                 <div class="col s11">
-                  <i class="material-icons circle blue darken-3">work</i>
+                  <i class="material-icons circle teal darken-3">work</i>
                   <span class="title">{{experience}}</span>
                   {% if experience.is_current_job %}
                     <p class="grey-text text-darken-2">{{experience.start_date}} {% trans 'until now' %}</p>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col s1">
                   <a href="#{{experience.pk}}:experience" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Experience' %}">
-                    <i class="material-icons">visibility</i>
+                    <i class="material-icons icon-color">visibility</i>
                   </a>
                 </div>
               </div>
@@ -47,20 +47,17 @@
                 {% else %}
                   <h4>{{experience}}</h4>
                 {% endif %}
-                <hr />
+                <div class="divider"></div>
                 {% if experience.short_title.exists %}
                   <p class="flow-text">{{experience.short_title}}</p>
                 {% endif %}
                 {% if experience.is_current_job %}
                   <p class="grey-text text-darken-2">{{experience.start_date}} {% trans 'until now' %} | {{experience.location}}</p>
                 {% else %}
-                  <p class="grey-text text-darken-2">{{experience.start_date}} - {{experience.end_date}} | {{experience.location}}<p>
+                  <p class="grey-text text-darken-2">{{experience.start_date}} - {{experience.end_date}} | {{experience.location}}</p>
                 {% endif %}
-                <br />
                 <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
-                <br />
                 <p class="flow-text">{{experience.description|linebreaksbr}}</p>
-                <br />
                 {% if experience.files.exists %}
                   <ul class="collection with-header">
                     <li class="collection-header"><h4>{% trans 'Files' %}</h4></li>
@@ -76,16 +73,16 @@
                 {% if experience.event_url %}
                   <div class="row">
                     <div class="col s12 m6">
-                      <a href="{{experience.event_url}}" class="modal-action waves-effect waves-green btn blue darken-3 left" target="_blank">
+                      <a href="{{experience.event_url}}" class="modal-action waves-effect waves-green btn teal darken-3 left" target="_blank">
                         <i class="material-icons left">link</i>{% trans 'Link to event' %}
                       </a>
                     </div>
                     <div class="col s12 m6">
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
                     </div>
                   </div>
                 {% else %}
-                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn blue darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
                 {% endif %}
               </div>
             </div>
@@ -99,13 +96,13 @@
           {% if experiences.has_previous %}
             <li class="waves-effect">
               <a href="?page={{experiences.previous_page_number}}#experience">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-icons icon-color">chevron_left</i>
               </a>
             </li>
           {% else %}
             <li class="waves-effect disabled">
               <a href="#experience">
-                <i class="material-icons">chevron_left</i>
+                <i class="material-icons icon-color">chevron_left</i>
               </a>
             </li>
           {% endif %}
@@ -117,13 +114,13 @@
           {% if experiences.has_next %}
             <li class="waves-effect">
               <a href="?page={{experiences.next_page_number}}#experience">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-icons icon-color">chevron_right</i>
               </a>
             </li>
           {% else %}
             <li class="waves-effect disabled">
               <a href="#experience">
-                <i class="material-icons">chevron_right</i>
+                <i class="material-icons icon-color">chevron_right</i>
               </a>
             </li>
           {% endif %}
