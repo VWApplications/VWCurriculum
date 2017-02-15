@@ -89,6 +89,6 @@ ENV/
 .ropeproject
 
 # Ignore the local settings on production
-vwcurriculum/settings/local.py
+vwcurriculum/local_settings.py
 vwcurriculum/staticfiles
 media
