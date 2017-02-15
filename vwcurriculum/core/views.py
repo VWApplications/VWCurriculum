@@ -110,3 +110,13 @@ def pagination(request, object_list, amount, query):
   except EmptyPage:
     objects = paginator.page(paginator.num_pages)
   return objects
+
+
+def error_404(request):
+  template = 'core/404.html'
+  return render(request, template)
+
+
+def error_500(request):
+  template = 'core/500.html'
+  return render(request, template)
