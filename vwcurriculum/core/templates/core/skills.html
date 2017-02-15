@@ -44,7 +44,7 @@
       <div class="card-action">
         {% pagination request skills.paginator skills "skill_page" "skill" %}
         <div class="row right">
-          <a class='dropdown-button btn teal darken-3' href='#skills' data-activates='dropdown_skill_category'>Categorias</a>
+          <a class='dropdown-button btn teal darken-3' href='#skills' data-activates='dropdown_skill_category'>{% trans 'Categories' %}</a>
           <ul id='dropdown_skill_category' class='dropdown-content'>
             <li><a href="{% url 'core:home' %}#skill">Todos</a></li>
             <li><a href="?skill_category=Linguagens#skill">Linguagens</a></li>
