@@ -133,13 +133,13 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Email
-# DEFAULT_FROM_EMAIL = 'Victor Arnaud: <victorhad@gmail.com>'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'victorhad@gmail.com'
-# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '***')
-# EMAIL_PORT = 587
-# CONTACT_EMAIL = 'victorhad@gmail.com'
+DEFAULT_FROM_EMAIL = 'Victor Arnaud: <victorhad@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'victorhad@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '***')
+EMAIL_PORT = 587
+CONTACT_EMAIL = 'victorhad@gmail.com'
 
 # Sobrescrever as configurações do settings.py com as do local_settings.py
 try:
