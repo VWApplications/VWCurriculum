@@ -15,6 +15,6 @@ $(document).ready(function(){
   });
   $('.parallax').parallax();
   $('.materialboxed').materialbox();
-  $('.slider').slider({full_width: true});
+  $('.slider').slider({full_width: true, indicators: false});
   $('.tooltipped').tooltip({delay: 50});
 });
