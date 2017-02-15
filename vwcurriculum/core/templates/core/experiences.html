@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load pagination %}
 <div class="row">
   <h2 class="parallax-container parallax-h2">
     <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
@@ -14,7 +15,7 @@
               <input type="text" class="input-search" name="q_experience" value="{{request.GET.q_experience}}" placeholder="{% trans 'Search Experience...' %}">
             </div>
             <div>
-              <button type="submit" class="btn btn-search teal darken-3"><i class="material-icons search-icon">search</i></button>
+              <button type="submit" class="btn btn-search teal darken-3"><i class="fa fa-search search-icon"></i></button>
             </div>
           </div>
         </form>
@@ -23,7 +24,7 @@
             <li class="collection-item avatar">
               <div class="row">
                 <div class="col s11">
-                  <i class="material-icons circle teal darken-3">work</i>
+                  <i class="fa fa-briefcase circle teal darken-3"></i>
                   <span class="title">{{experience}}</span>
                   {% if experience.is_current_job %}
                     <p class="grey-text text-darken-2">{{experience.start_date}} {% trans 'until now' %}</p>
@@ -34,7 +35,7 @@
                 </div>
                 <div class="col s1">
                   <a href="#{{experience.pk}}:experience" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Experience' %}">
-                    <i class="material-icons icon-color">visibility</i>
+                    <i class="fa fa-eye icon-color"></i>
                   </a>
                 </div>
               </div>
@@ -62,8 +63,8 @@
                   <ul class="collection with-header">
                     <li class="collection-header"><h4>{% trans 'Files' %}</h4></li>
                     {% for file in experience.files.all %}
-                    <li class="collection-item"><div><i class="material-icons left">attachment</i>{{file.title}}
-                      <a href="{{file.document.url}}" class="secondary-content" download="{{file}}"><i class="material-icons left">file_download</i>{% trans 'Download' %}</a>
+                    <li class="collection-item"><div><i class="fa fa-file-zip-o left md-18"></i>{{file.title}}
+                      <a href="{{file.document.url}}" class="secondary-content" download="{{file}}"><i class="fa fa-download left md-18"></i>{% trans 'Download' %}</a>
                     </div></li>
                     {% endfor %}
                   </ul>
@@ -74,15 +75,15 @@
                   <div class="row">
                     <div class="col s12 m6">
                       <a href="{{experience.event_url}}" class="modal-action waves-effect waves-green btn teal darken-3 left" target="_blank">
-                        <i class="material-icons left">link</i>{% trans 'Link to event' %}
+                        <i class="fa fa-link left"></i>{% trans 'Link to event' %}
                       </a>
                     </div>
                     <div class="col s12 m6">
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
                     </div>
                   </div>
                 {% else %}
-                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
                 {% endif %}
               </div>
             </div>
@@ -92,39 +93,7 @@
         </ul>
       </div>
       <div class="card-action">
-        <ul class="pagination">
-          {% if experiences.has_previous %}
-            <li class="waves-effect">
-              <a href="?page={{experiences.previous_page_number}}#experience">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#experience">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% endif %}
-          {% for page in experiences.paginator.page_range %}
-            <li class=" waves-effect {% if page == experiences.number %}active{% endif %}">
-              <a href="?page={{page}}#experience">{{page}}</a>
-            </li>
-          {% endfor %}
-          {% if experiences.has_next %}
-            <li class="waves-effect">
-              <a href="?page={{experiences.next_page_number}}#experience">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#experience">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
+        {% pagination request experiences.paginator experiences "experience_page" "experience" %}
       </div>
     </div>
   </div>

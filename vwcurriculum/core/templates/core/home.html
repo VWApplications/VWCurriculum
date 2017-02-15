@@ -6,15 +6,9 @@
     <ul class="slides">
       <li>
         <img src="{% static 'core/img/back1.jpg' %}">
-        <div class="caption center-align palavras-home">
+        <div class="caption center-align">
           <h3>{% trans 'Welcome' %}</h3>
           <h5 class="light grey-text text-lighten-3">{% trans 'Victor Arnaud\'s Portfolio' %}.</h5>
-          <p class="palavra-home mobile">Mobile</p>
-          <p class="palavra-home web">Web</p>
-          <p class="palavra-home system">Sistemas Embarcados</p>
-          <p class="palavra-home intelligent">Inteligencia Artificial</p>
-          <p class="palavra-home design">Design e UX</p>
-          <p class="palavra-home games">Jogos</p>
         </div>
       </li>
       <li>
@@ -42,7 +36,7 @@
     {% include 'core/experiences.html' %}
   </section>
   <div class="fixed-action-btn">
-    <a class="btn-floating btn-large waves-effect teal darken-3"><i class="large material-icons">link</i></a>
+    <a class="btn-floating btn-large waves-effect teal darken-3"><i class="large fa fa-link"></i></a>
     <ul>
       {% for link in profile.links.all %}
         {% if link.fa_icon %}

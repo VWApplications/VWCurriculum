@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load pagination %}
 <div class="row">
   <h2 class="parallax-container parallax-h2">
     <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
@@ -23,7 +24,7 @@
               <p class="flow-text"><b>{% trans 'Level' %}:</b>
                 {% with ''|center:skill.level as range %}
                   {% for star in range %}
-                    <span class="material-icons md-36 right">grade</span>
+                    <span class="fa fa-star md-36 right"></span>
                   {% endfor %}
                 {% endwith %}
               </p>
@@ -32,7 +33,7 @@
               <p class="flow-text">{{skill.description|linebreaksbr}}</p>
             </div>
             <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
             </div>
           </div>
         {% empty %}
@@ -41,39 +42,7 @@
         </div>
       </div>
       <div class="card-action">
-        <ul class="pagination" id="pagination">
-          {% if skills.has_previous %}
-            <li class="waves-effect">
-              <a href="?page={{skills.previous_page_number}}#skill">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#skill">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% endif %}
-          {% for page in skills.paginator.page_range %}
-            <li class=" waves-effect {% if page == skills.number %}active{% endif %}">
-              <a href="?page={{page}}#skill">{{page}}</a>
-            </li>
-          {% endfor %}
-          {% if skills.has_next %}
-            <li class="waves-effect">
-              <a href="?page={{skills.next_page_number}}#skill">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#skill">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
+        {% pagination request skills.paginator skills "skill_page" "skill" %}
         <div class="row right">
           <a class='dropdown-button btn teal darken-3' href='#skills' data-activates='dropdown_skill_category'>Categorias</a>
           <ul id='dropdown_skill_category' class='dropdown-content'>

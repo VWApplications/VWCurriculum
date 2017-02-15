@@ -3,17 +3,14 @@
   <div class="col l5 s12">
     <ul>
       <blockquote>
-        <li class="white-text"><i class="material-icons">home</i><b>{% trans 'Address' %}</b>: {{profile.address}}</li>
-        <li class="white-text"><i class="material-icons">email</i><b>{% trans 'Email' %}</b>: {{profile.email}}</li>
-        <li class="white-text"><i class="material-icons">phone</i><b>{% trans 'Phone' %}</b>: {{profile.phone}}</li>
+        <li class="white-text"><i class="fa fa-home"></i><b>{% trans 'Address' %}</b>: {{profile.address}}</li>
+        <li class="white-text"><i class="fa fa-envelope-o"></i><b>{% trans 'Email' %}</b>: {{profile.email}}</li>
+        <li class="white-text"><i class="fa fa-phone"></i><b>{% trans 'Phone' %}</b>: {{profile.phone}}</li>
       </blockquote>
     </ul>
   </div>
   <form method="post" action="#contact" class="col l7 s12">
     {% csrf_token %}
-    {% if form.errors %}
-      <div class="card-panel teal lighten-2">{{form.non_field_errors}}</div>
-    {% endif %}
     {% if messages %}
       <div class="card-panel teal lighten-2">
         {% for message in messages %}
@@ -23,26 +20,32 @@
     {% endif %}
     <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix md-light md-24">account_circle</i>
+        <i class="fa fa-user-circle-o prefix md-light md-24"></i>
         <input id="name" type="text" class="validate white-text" name="name" length="50">
-        <label for="name" data-error="wrong" data-success="right">{% trans 'Name' %}</label>
-        {{form.name.errors}}
+        <label for="name" data-error="{% trans 'wrong' %}" data-success="{% trans 'right' %}">{% trans 'Name' %}</label>
+        {% for error in form.name.errors %}
+          <span class="red-text text-accent-2">{{error}}</span>
+        {% endfor %}
       </div>
       <div class="input-field col s6">
-        <i class="material-icons prefix md-light md-24">email</i>
+        <i class="fa fa-envelope-o prefix md-light md-24"></i>
         <input id="email" type="email" class="validate white-text" name="email" length="50">
         <label for="email" data-error="wrong" data-success="right">{% trans 'Email' %}</label>
-        {{form.email.errors}}
+        {% for error in form.email.errors %}
+          <span class="red-text text-accent-2">{{error}}</span>
+        {% endfor %}
       </div>
     </div>
     <div class="input-field col s12">
-      <i class="material-icons prefix md-light md-24">message</i>
+      <i class="fa fa-comment-o prefix md-light md-24"></i>
       <textarea id="textarea" class="materialize-textarea white-text" name="message" rows="5" length="300"></textarea>
       <label for="textarea" data-error="wrong" data-success="right">{% trans 'Message' %}</label>
-      {{form.message.errors}}
+      {% for error in form.message.errors %}
+        <span class="red-text text-accent-2">{{error}}</span>
+      {% endfor %}
     </div>
     <button class="waves-effect waves-light btn button-block" type="submit">
-      <i class="material-icons left">send</i>
+      <i class="fa fa-send-o left"></i>
       {% trans 'Send' %}
     </button>
   </form>

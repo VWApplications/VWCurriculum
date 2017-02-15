@@ -8,46 +8,48 @@ from .forms import ContactForm
 
 def home(request):
   template = 'core/home.html'
-  profile = Profile.objects.get(id=1)
+  profile = Profile.objects.all()[0]
   context = {
+    'profile': profile,
     'skills': get_skills(request, profile),
     'certificates': get_certificates(request, profile),
     'projects': get_projects(request, profile),
     'experiences': get_experiences(request, profile),
   }
-  form = ContactForm(request.POST or None)
-  if form.is_valid():
-    form.send_message()
-    form = ContactForm()
-    messages.success(request, "Seu email foi enviado com sucesso")
-  else:
-    form = ContactForm()
-  context['form'] = form
+  send_email(request, context)
   return render(request, template, context)
 
 
+def send_email(request, context):
+  form = ContactForm(request.POST or None)
+  if form.is_valid():
+    form.send_message()
+    messages.success(request, "Seu email foi enviado com sucesso")
+  context['form'] = form
+
+
 def get_skills(request, profile):
-  skills = filter_skills(request, profile.skills.all())
-  skills = pagination(request, skills, 20)
+  skills = filter_category(request, profile.skills.all(), 'skill_category')
+  skills = pagination(request, skills, 20, 'skill_page')
   return skills
 
 
 def get_certificates(request, profile):
-  certificates = filter_certificates(request, profile.certificates.all())
+  certificates = filter_category(request, profile.certificates.all(), 'certificate_category')
   certificates = search_certificate(request, certificates)
-  certificates = pagination(request, certificates, 5)
+  certificates = pagination(request, certificates, 5, 'certificate_page')
   return certificates
 
 
 def get_projects(request, profile):
   projects = search_project(request, profile.projects.all())
-  projects = pagination(request, projects, 5)
+  projects = pagination(request, projects, 5, 'project_page')
   return projects
 
 
 def get_experiences(request, profile):
   experiences = search_experience(request, profile.experiences.all())
-  experiences = pagination(request, experiences, 5)
+  experiences = pagination(request, experiences, 5, 'experience_page')
   return experiences
 
 
@@ -81,19 +83,8 @@ def search_experience(request, experiences):
   return experiences
 
 
-def filter_skills(request, skills):
-  category = request.GET.get('skill_category', '')
-  skills = filter_category(category, skills)
-  return skills
-
-
-def filter_certificates(request, certificates):
-  category = request.GET.get('certificate_category', '')
-  certificates = filter_category(category, certificates)
-  return certificates
-
-
-def filter_category(category, objects):
+def filter_category(request, objects, query):
+  category = request.GET.get(query, '')
   if category == 'Framework':
     return objects.filter(category=category)
   if category == 'Linguagens':
@@ -109,9 +100,9 @@ def filter_category(category, objects):
   return objects
 
 
-def pagination(request, object_list, amount):
+def pagination(request, object_list, amount, query):
   paginator = Paginator(object_list, amount)
-  page = request.GET.get('page')
+  page = request.GET.get(query)
   try:
     objects = paginator.page(page)
   except PageNotAnInteger:

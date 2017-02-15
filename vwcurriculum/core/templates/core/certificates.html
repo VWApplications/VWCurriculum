@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load pagination %}
 <div class="row">
   <h2 class="parallax-container parallax-h2">
     <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
@@ -14,7 +15,7 @@
               <input type="text" class="input-search" name="q_certificate" value="{{request.GET.q_certificate}}" placeholder="{% trans 'Search Certificates...' %}">
             </div>
             <div>
-              <button type="submit" class="btn btn-search teal darken-3"><i class="material-icons search-icon">search</i></button>
+              <button type="submit" class="btn btn-search teal darken-3"><i class="fa fa-search search-icon"></i></button>
             </div>
           </div>
         </form>
@@ -23,7 +24,7 @@
             <li class="collection-item avatar">
               <div class="row">
                 <div class="col s11">
-                  <i class="material-icons circle teal darken-3">stars</i>
+                  <i class="fa fa-star circle teal darken-3"></i>
                   <span class="title"><b>{% trans 'Title' %}:</b> {{certificate}}</span>
                   <p><b>{% trans 'Issuing organization' %}:</b> {{certificate.issuing_institution}}</p>
                 </div>
@@ -45,15 +46,15 @@
                     <div class="row">
                       <div class="col s12 m6">
                         <a href="{{certificate.url}}" class="modal-action waves-effect waves-green btn teal darken-3 left link-modal" target="_blank">
-                          <i class="material-icons left">link</i>{% trans 'Link to certificate' %}
+                          <i class="fa fa-link left"></i>{% trans 'Link to certificate' %}
                         </a>
                       </div>
                       <div class="col s12 m6">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3" width="100%"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3" width="100%"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
                       </div>
                     </div>
                   {% else %}
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
                   {% endif %}
                 </div>
               </div>
@@ -64,39 +65,7 @@
         </ul>
       </div>
       <div class="card-action">
-        <ul class="pagination">
-          {% if certificates.has_previous %}
-            <li class="waves-effect">
-              <a href="?page={{certificates.previous_page_number}}#certificate">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#certificate">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% endif %}
-          {% for page in certificates.paginator.page_range %}
-            <li class=" waves-effect {% if page == certificates.number %}active{% endif %}">
-              <a href="?page={{page}}#certificate">{{page}}</a>
-            </li>
-          {% endfor %}
-          {% if certificates.has_next %}
-            <li class="waves-effect">
-              <a href="?page={{certificates.next_page_number}}#certificate">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#certificate">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
+        {% pagination request certificates.paginator certificates "certificate_page" "certificate" %}
         <div class="row right">
           <a class='dropdown-button btn teal darken-3' href='#certificates' data-activates='dropdown_certificate_category'>Categorias</a>
           <ul id='dropdown_certificate_category' class='dropdown-content'>

@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load pagination %}
 <div class="row">
   <h2 class="parallax-container parallax-h2">
     <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
@@ -14,7 +15,7 @@
               <input type="text" class="input-search" name="q_project" value="{{request.GET.q_project}}" placeholder="{% trans 'Search Project...' %}">
             </div>
             <div>
-              <button type="submit" class="btn btn-search teal darken-3"><i class="material-icons search-icon">search</i></button>
+              <button type="submit" class="btn btn-search teal darken-3"><i class="fa fa-search search-icon"></i></button>
             </div>
           </div>
         </form>
@@ -23,7 +24,7 @@
             <li class="collection-item avatar">
               <div class="row">
                 <div class="col s11">
-                  <i class="material-icons circle teal darken-3">web</i>
+                  <i class="fa fa-handshake-o circle teal darken-3"></i>
                   <span class="title">{{project}}</span>
                   {% if project.situation == 'Em Andamento' %}
                     <p class="grey-text text-darken-2">{{project.start_date}} {% trans 'until now' %}</p>
@@ -35,7 +36,7 @@
                 </div>
                 <div class="col s1">
                   <a href="#{{project.pk}}:project" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Project' %}">
-                    <i class="material-icons icon-color">visibility</i>
+                    <i class="fa fa-eye icon-color"></i>
                   </a>
                 </div>
               </div>
@@ -58,8 +59,8 @@
                     {% for file in project.files.all %}
                     <li class="collection-item">
                       <div>
-                        <i class="material-icons left">attachment</i>{{file.title}}
-                        <a href="{{file.document.url}}" class="secondary-content" download="{{file}}"><i class="material-icons left">file_download</i>{% trans 'Download' %}</a>
+                        <i class="fa fa-file-zip-o left md-18"></i>{{file.title}}
+                        <a href="{{file.document.url}}" class="secondary-content" download="{{file}}"><i class="fa fa-download left"></i>{% trans 'Download' %}</a>
                       </div>
                     </li>
                     {% endfor %}
@@ -76,15 +77,15 @@
                   <div class="row">
                     <div class="col s12 m6">
                       <a href="{{project.url}}" class="modal-action waves-effect waves-green btn teal darken-3 left" target="_blank">
-                        <i class="material-icons left">link</i>{% trans 'Link to project' %}
+                        <i class="fa fa-link left"></i>{% trans 'Link to project' %}
                       </a>
                     </div>
                     <div class="col s12 m6">
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
                     </div>
                   </div>
                 {% else %}
-                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="material-icons left">close</i>{% trans 'Close' %}</a>
+                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn teal darken-3"><i class="fa fa-close left"></i>{% trans 'Close' %}</a>
                 {% endif %}
               </div>
             </div>
@@ -94,39 +95,7 @@
         </ul>
       </div>
       <div class="card-action">
-        <ul class="pagination">
-          {% if projects.has_previous %}
-            <li class="waves-effect">
-              <a href="?page={{projects.previous_page_number}}#project">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#project">
-                <i class="material-icons icon-color">chevron_left</i>
-              </a>
-            </li>
-          {% endif %}
-          {% for page in projects.paginator.page_range %}
-            <li class=" waves-effect {% if page == projects.number %}active{% endif %}">
-              <a href="?page={{page}}#project">{{page}}</a>
-            </li>
-          {% endfor %}
-          {% if projects.has_next %}
-            <li class="waves-effect">
-              <a href="?page={{projects.next_page_number}}#project">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% else %}
-            <li class="waves-effect disabled">
-              <a href="#project">
-                <i class="material-icons icon-color">chevron_right</i>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
+        {% pagination request projects.paginator projects "project_page" "project" %}
       </div>
     </div>
   </div>
