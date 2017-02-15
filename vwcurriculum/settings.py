@@ -11,19 +11,17 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9d-e%2cz_vcq%026++34w)_wwb*5mtq7&osvogim^d73dpi*@-'
+SECRET_KEY = os.getenv('SECRET_KEY', 'SECRET_KEY_VWCurriculum')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -47,6 +45,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'vwcurriculum.urls'
@@ -119,12 +118,32 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Database
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+# Configurações de segurança do heroku
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Permitir todos os dominios que vão ter acesso a essa aplicação
+ALLOWED_HOSTS = ['*']
+
+# Servir arquivos estaticos
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'Victor Arnaud: <victorhad@gmail.com>'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'victorhad@gmail.com'
-EMAIL_HOST_PASSWORD = '***'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '***')
 EMAIL_PORT = 587
 CONTACT_EMAIL = 'victorhad@gmail.com'
+
+# Sobrescrever as configurações do settings.py com as do local_settings.py
+try:
+  from .local_settings import *
+except ImportError:
+  pass
+
