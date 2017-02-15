@@ -126,7 +126,7 @@ DATABASES['default'].update(db_from_env)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Permitir todos os dominios que vão ter acesso a essa aplicação
-ALLOWED_HOSTS = ['vwcurriculum.herokuapp.com', '189.61.54.109']
+ALLOWED_HOSTS = ['*', 'vwcurriculum.herokuapp.com']
 
 # Servir arquivos estaticos
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
