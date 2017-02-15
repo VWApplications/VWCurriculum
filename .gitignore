@@ -90,5 +90,5 @@ ENV/
 
 # Ignore the local settings on production
 vwcurriculum/settings/local.py
+vwcurriculum/staticfiles
 media
-static
