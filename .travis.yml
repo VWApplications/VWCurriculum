@@ -14,7 +14,6 @@ script:
   - python manage.py migrate
   - python manage.py collectstatic --noinput
   - python manage.py test
-  - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
 after_sucess:
     - CODECLIMATE_REPO_TOKEN=430ff687598744f1ac73ac30cd272c0a3de5e6ece19b6d2aa704151c0a2c444d codeclimate-test-reporter
