@@ -275,3 +275,12 @@ html {
   -ms-transform: translate(-50%, -50%) rotate(-20deg) translateZ(1px);
   transform: translate(-50%, -50%) rotate(0deg) translateZ(0) scale(0.25);
 }
+
+.parallax {
+  background-image: url("../img/binary.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

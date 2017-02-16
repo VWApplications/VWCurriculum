@@ -3,7 +3,7 @@
 {% load pagination %}
 <div class="row">
   <h2 class="parallax-container parallax-h2">
-    <div class="parallax"><img src="{% static 'core/img/binary.jpg' %}"></div>
+    <div class="parallax"></div>
     {% trans 'Certificates' %}
   </h2>
   <div class="col s12 m12">
@@ -39,7 +39,7 @@
                 <div class="modal-content">
                   <h4>{{certificate}}<span class="badge">{{certificate.category}}</span></h4>
                   <div class="divider"></div>
-                  <img src="{{certificate.document.url}}" alt="{{certificate}}" class="responsive-img photo materialboxed"/>
+                  <img src="{{certificate.document}}" alt="{{certificate}}" class="responsive-img photo materialboxed"/>
                 </div>
                 <div class="modal-footer">
                   {% if certificate.url %}

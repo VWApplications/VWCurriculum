@@ -70,8 +70,8 @@ class Skill(models.Model):
 class Certificate(models.Model):
   title = models.CharField('Título', max_length=100)
   issuing_institution = models.CharField('Orgão Emissor', max_length=100)
-  url = models.URLField('URL do certificado', blank=True, null=True)
-  document = models.ImageField(upload_to='documentos', verbose_name='Arquivo do certificado')
+  url = models.URLField('URL do certificado', blank=True, null=True, help_text='URL official do certificado')
+  document = models.URLField('URL do certificado', max_length=1000, help_text='URL do google driver do certificado,na imagem clique com o botão direito, depois clique em share e coloque o link no navegador, após isso clique com o botão direito na imagem e copy image address e cole aqui')
   profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='certificates')
   created_at = models.DateTimeField('Criado em', auto_now_add=True)
   updated_at = models.DateTimeField('Modificado em', auto_now=True)
