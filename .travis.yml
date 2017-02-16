@@ -16,21 +16,6 @@ script:
   - python manage.py test
   - py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: "15ffaab8-8096-4173-b6a2-975c73a692ea"
-  app: vwcurriculumtest
-  run:
-    - "python manage.py migrate"
-    - "python manage.py compilemessages"
-  on:
-    python: 3.6.0
-  buildpack: python
-
-after_deploy:
-  - heroku open
-
 after_sucess:
     - CODECLIMATE_REPO_TOKEN=430ff687598744f1ac73ac30cd272c0a3de5e6ece19b6d2aa704151c0a2c444d codeclimate-test-reporter
     - coveralls
