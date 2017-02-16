@@ -14,6 +14,7 @@ script:
   - python manage.py migrate
   - python manage.py collectstatic --noinput
   - coverage run --source='.' manage.py test
+  - python manage.py test
 
 after_sucess:
     - CODECLIMATE_REPO_TOKEN=430ff687598744f1ac73ac30cd272c0a3de5e6ece19b6d2aa704151c0a2c444d codeclimate-test-reporter
