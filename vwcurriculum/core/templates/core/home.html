@@ -2,16 +2,21 @@
 {% load static %}
 {% load i18n %}
 {% block main %}
-  <div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="{% static 'core/img/back1.jpg' %}">
-        <div class="caption center-align">
-          <h3>{% trans 'Welcome' %}</h3>
-          <h5 class="light grey-text text-lighten-3">{% trans 'Victor Arnaud\'s Portfolio' %}.</h5>
-        </div>
-      </li>
-    </ul>
+  <div class="banner">
+    <img src="{% static 'core/img/back1.jpg' %}" class="banner">
+    <div class="banner-text center-align grey-text text-lighten-3">
+      <h3>{% trans 'Welcome' %}</h3>
+      <h5>{% trans 'Victor Arnaud\'s Portfolio' %}.</h5>
+      <ul class="banner-words-pespective hide-on-med-and-down">
+        <li class="banner-word mobile">{% trans 'Mobile' %}</li>
+        <li class="banner-word web">{% trans 'Web' %}</li>
+        <li class="banner-word games">{% trans 'Games' %}</li>
+        <li class="banner-word intelligence">{% trans 'Artificial Intelligence' %}</li>
+        <li class="banner-word design">{% trans 'Design' %}</li>
+        <li class="banner-word ux">{% trans 'UX' %}</li>
+        <li class="banner-word system">{% trans 'Embedded systems' %}</li>
+      </ul>
+    </div>
   </div>
   <section id="profile">
     {% include 'core/profile.html' %}

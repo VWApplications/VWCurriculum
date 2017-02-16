@@ -9,7 +9,7 @@
       </blockquote>
     </ul>
   </div>
-  <form method="post" action="#contact" class="col l7 s12">
+  <form method="post" action="#contact" class="col l7 s12" autocomplete="off">
     {% csrf_token %}
     {% if messages %}
       <div class="card-panel teal lighten-2">
@@ -52,5 +52,5 @@
 </div>
 <div class="footer-copyright">
   <a class="tooltipped top" href="" data-position="bottom" data-delay="50" data-tooltip="Ir para o topo da página"><i class="fa fa-chevron-up icon-color"></i></a>
-  <span class="copyright grey-text">{% trans 'Made by' %} <a href="https://github.com/VictorArnaud" target="_blank">Victor Arnaud</a></span>
+  <span class="copyright grey-text">{% trans 'Made by' %} <a href="#top" target="_blank">Victor Arnaud</a></span>
 </div>

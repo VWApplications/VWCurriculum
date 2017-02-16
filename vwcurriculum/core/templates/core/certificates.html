@@ -25,8 +25,8 @@
               <div class="row">
                 <div class="col s11">
                   <i class="fa fa-star circle teal darken-3"></i>
-                  <span class="title"><b>{% trans 'Title' %}:</b> {{certificate}}</span>
-                  <p><b>{% trans 'Issuing organization' %}:</b> {{certificate.issuing_institution}}</p>
+                  <p class="title"><b>{% trans 'Title' %}:</b> {{certificate}}</p>
+                  <span><b>{% trans 'Issuing organization' %}:</b> {{certificate.issuing_institution}}</span>
                 </div>
                 <div class="col s1">
                   <a href="#{{certificate.pk}}:certificate" class="secondary-content tooltipped" data-position="left" data-delay="50" data-tooltip="{% trans 'View Certificate' %}">

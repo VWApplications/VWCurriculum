@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -74,13 +75,13 @@ class Certificate(models.Model):
   profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='certificates')
   created_at = models.DateTimeField('Criado em', auto_now_add=True)
   updated_at = models.DateTimeField('Modificado em', auto_now=True)
-  DEFAULT = 'Outras'
+  DEFAULT = _('Others')
   CATEGORY = (
-    ('Linguagens', 'Linguagens'),
-    ('Framework', 'Framework'),
-    ('Design', 'Design'),
-    ('Devops', 'Devops'),
-    ('Governança de TI', 'Governança de TI'),
+    (_('Languages'), _('Languages')),
+    (_('Framework'), _('Framework')),
+    (_('Design'), _('Design')),
+    (_('Devops'), _('Devops')),
+    (_('Management'), _('Management and Business')),
     (DEFAULT, DEFAULT),
   )
   category = models.CharField('Categoria', max_length=100, choices=CATEGORY, default=DEFAULT)
@@ -106,12 +107,12 @@ class Project(models.Model):
   profile = models.ForeignKey(Profile, verbose_name='Perfil', related_name='projects')
   created_at = models.DateTimeField('Criado em', auto_now_add=True)
   updated_at = models.DateTimeField('Modificado em', auto_now=True)
-  DEFAULT_STATUS = 'Em Andamento'
+  DEFAULT_STATUS = _('In progress')
   STATUS = (
-    ('Concluido', 'Concluido'),
+    (_('Completed'), _('Completed')),
     (DEFAULT_STATUS, DEFAULT_STATUS),
-    ('Parado', 'Parado'),
-    ('Cancelado', 'Cancelado'),
+    (_('Stopped'), _('Stopped')),
+    (_('Canceled'), _('Canceled')),
   )
   situation = models.CharField('Situação', max_length=100, choices=STATUS, default=DEFAULT_STATUS, help_text='Situação do projeto')
 
