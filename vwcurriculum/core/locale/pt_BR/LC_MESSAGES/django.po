@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-14 04:14-0200\n"
+"POT-Creation-Date: 2017-02-15 23:43-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,52 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: vwcurriculum/core/models.py:78
+msgid "Others"
+msgstr "Outros"
+
+#: vwcurriculum/core/models.py:80
+msgid "Languages"
+msgstr "Linguagens de programação"
+
+#: vwcurriculum/core/models.py:81
+msgid "Framework"
+msgstr "Framework"
+
+#: vwcurriculum/core/models.py:82
+#: vwcurriculum/core/templates/core/home.html:15
+msgid "Design"
+msgstr "Design"
+
+#: vwcurriculum/core/models.py:83
+msgid "Devops"
+msgstr "Devops"
+
+#: vwcurriculum/core/models.py:84
+msgid "Management"
+msgstr "Gestao"
+
+#: vwcurriculum/core/models.py:84
+msgid "Management and Business"
+msgstr "Gestão e Negócios"
+
+#: vwcurriculum/core/models.py:110
+msgid "In progress"
+msgstr "Em Andamento"
+
+#: vwcurriculum/core/models.py:112
+#: vwcurriculum/core/templates/core/experiences.html:33
+msgid "Completed"
+msgstr "Concluído"
+
+#: vwcurriculum/core/models.py:114
+msgid "Stopped"
+msgstr "Parado"
+
+#: vwcurriculum/core/models.py:115
+msgid "Canceled"
+msgstr "Cancelado"
 
 #: vwcurriculum/core/templates/core/base.html:12
 #: vwcurriculum/core/templates/core/navbar.html:5
@@ -28,94 +74,95 @@ msgstr "VWCurrículo"
 msgid "Contact"
 msgstr "Contato"
 
-#: vwcurriculum/core/templates/core/certificates.html:6
+#: vwcurriculum/core/templates/core/certificates.html:7
 #: vwcurriculum/core/templates/core/navbar.html:26
 msgid "Certificates"
 msgstr "Certificados"
 
-#: vwcurriculum/core/templates/core/certificates.html:14
+#: vwcurriculum/core/templates/core/certificates.html:15
 msgid "Search Certificates..."
 msgstr "Pesquisar certificado"
 
-#: vwcurriculum/core/templates/core/certificates.html:27
+#: vwcurriculum/core/templates/core/certificates.html:28
 msgid "Title"
 msgstr "Título"
 
-#: vwcurriculum/core/templates/core/certificates.html:28
+#: vwcurriculum/core/templates/core/certificates.html:29
 msgid "Issuing organization"
 msgstr "Orgão emissor"
 
-#: vwcurriculum/core/templates/core/certificates.html:31
+#: vwcurriculum/core/templates/core/certificates.html:32
 msgid "View Certificate"
 msgstr "Ver Certificado"
 
-#: vwcurriculum/core/templates/core/certificates.html:48
+#: vwcurriculum/core/templates/core/certificates.html:49
 msgid "Link to certificate"
 msgstr "Link para o certificado"
 
-#: vwcurriculum/core/templates/core/certificates.html:52
-#: vwcurriculum/core/templates/core/certificates.html:56
-#: vwcurriculum/core/templates/core/experiences.html:81
-#: vwcurriculum/core/templates/core/experiences.html:85
-#: vwcurriculum/core/templates/core/projects.html:83
-#: vwcurriculum/core/templates/core/projects.html:87
-#: vwcurriculum/core/templates/core/skills.html:35
+#: vwcurriculum/core/templates/core/certificates.html:53
+#: vwcurriculum/core/templates/core/certificates.html:57
+#: vwcurriculum/core/templates/core/experiences.html:82
+#: vwcurriculum/core/templates/core/experiences.html:86
+#: vwcurriculum/core/templates/core/projects.html:84
+#: vwcurriculum/core/templates/core/projects.html:88
+#: vwcurriculum/core/templates/core/skills.html:36
 msgid "Close"
 msgstr "Fechar"
 
-#: vwcurriculum/core/templates/core/certificates.html:62
+#: vwcurriculum/core/templates/core/certificates.html:63
 msgid "There are no certificate registered"
 msgstr "Não há certificados"
 
-#: vwcurriculum/core/templates/core/experiences.html:6
+#: vwcurriculum/core/templates/core/certificates.html:70
+#: vwcurriculum/core/templates/core/skills.html:47
+msgid "Categories"
+msgstr "Categorias"
+
+#: vwcurriculum/core/templates/core/experiences.html:7
 #: vwcurriculum/core/templates/core/navbar.html:28
 msgid "Experiences"
 msgstr "Experiências"
 
-#: vwcurriculum/core/templates/core/experiences.html:14
+#: vwcurriculum/core/templates/core/experiences.html:15
 msgid "Search Experience..."
 msgstr "Pesquisar Experiência"
 
-#: vwcurriculum/core/templates/core/experiences.html:29
-#: vwcurriculum/core/templates/core/experiences.html:55
-#: vwcurriculum/core/templates/core/projects.html:29
-#: vwcurriculum/core/templates/core/projects.html:69
+#: vwcurriculum/core/templates/core/experiences.html:30
+#: vwcurriculum/core/templates/core/experiences.html:56
+#: vwcurriculum/core/templates/core/projects.html:30
+#: vwcurriculum/core/templates/core/projects.html:70
 msgid "until now"
 msgstr "até o momento"
 
-#: vwcurriculum/core/templates/core/experiences.html:32
-msgid "Completed"
-msgstr "Concluido"
-
-#: vwcurriculum/core/templates/core/experiences.html:36
+#: vwcurriculum/core/templates/core/experiences.html:37
 msgid "View Experience"
 msgstr "Ver Experiência"
 
-#: vwcurriculum/core/templates/core/experiences.html:46
+#: vwcurriculum/core/templates/core/experiences.html:47
 msgid "Current job"
 msgstr "Trabalho atual"
 
-#: vwcurriculum/core/templates/core/experiences.html:59
-#: vwcurriculum/core/templates/core/projects.html:53
-#: vwcurriculum/core/templates/core/skills.html:31
+#: vwcurriculum/core/templates/core/experiences.html:60
+#: vwcurriculum/core/templates/core/projects.html:54
+#: vwcurriculum/core/templates/core/skills.html:32
 msgid "Description"
 msgstr "Descrição"
 
-#: vwcurriculum/core/templates/core/experiences.html:63
-#: vwcurriculum/core/templates/core/projects.html:57
+#: vwcurriculum/core/templates/core/experiences.html:64
+#: vwcurriculum/core/templates/core/projects.html:58
 msgid "Files"
 msgstr "Arquivos"
 
-#: vwcurriculum/core/templates/core/experiences.html:66
-#: vwcurriculum/core/templates/core/projects.html:62
+#: vwcurriculum/core/templates/core/experiences.html:67
+#: vwcurriculum/core/templates/core/projects.html:63
 msgid "Download"
 msgstr "Baixar"
 
-#: vwcurriculum/core/templates/core/experiences.html:77
+#: vwcurriculum/core/templates/core/experiences.html:78
 msgid "Link to event"
 msgstr "Link para o evento"
 
-#: vwcurriculum/core/templates/core/experiences.html:90
+#: vwcurriculum/core/templates/core/experiences.html:91
 msgid "There are no experience registered"
 msgstr "Não há experiência registrada"
 
@@ -124,7 +171,7 @@ msgid "Address"
 msgstr "Endereço"
 
 #: vwcurriculum/core/templates/core/footer.html:7
-#: vwcurriculum/core/templates/core/footer.html:34
+#: vwcurriculum/core/templates/core/footer.html:33
 msgid "Email"
 msgstr "Email"
 
@@ -132,45 +179,63 @@ msgstr "Email"
 msgid "Phone"
 msgstr "Telefone"
 
-#: vwcurriculum/core/templates/core/footer.html:28
+#: vwcurriculum/core/templates/core/footer.html:25
+msgid "wrong"
+msgstr "errado"
+
+#: vwcurriculum/core/templates/core/footer.html:25
+msgid "right"
+msgstr "certo"
+
+#: vwcurriculum/core/templates/core/footer.html:25
 msgid "Name"
 msgstr "Nome"
 
-#: vwcurriculum/core/templates/core/footer.html:41
+#: vwcurriculum/core/templates/core/footer.html:42
 msgid "Message"
 msgstr "Mensagem"
 
-#: vwcurriculum/core/templates/core/footer.html:46
+#: vwcurriculum/core/templates/core/footer.html:49
 msgid "Send"
 msgstr "Enviar"
 
-#: vwcurriculum/core/templates/core/footer.html:52
+#: vwcurriculum/core/templates/core/footer.html:55
 msgid "Made by"
 msgstr "Feito por"
 
-#: vwcurriculum/core/templates/core/home.html:10
+#: vwcurriculum/core/templates/core/home.html:8
 msgid "Welcome"
 msgstr "Bem-Vindo"
 
-#: vwcurriculum/core/templates/core/home.html:11
-msgid "Victor Arnaud"
+#: vwcurriculum/core/templates/core/home.html:9
+#, fuzzy
+#| msgid "Victor Arnaud"
+msgid "Victor Arnaud\\"
 msgstr "Victor Arnaud"
 
-#: vwcurriculum/core/templates/core/home.html:23
-msgid "Portfolio"
-msgstr "Portifólio"
+#: vwcurriculum/core/templates/core/home.html:11
+msgid "Mobile"
+msgstr "Mobile"
 
-#: vwcurriculum/core/templates/core/home.html:24
-msgid ""
-"Here you will find personal information, skills, projects, experiences and a "
-"field to contact"
-msgstr ""
-"Aqui você vai encontrar informações pessoais, habilidade, projetos, "
-"experiências e um campo para entrar em contato"
+#: vwcurriculum/core/templates/core/home.html:12
+msgid "Web"
+msgstr "Web"
 
-#: vwcurriculum/core/templates/core/navbar.html:7
-msgid "Login"
-msgstr "Logar"
+#: vwcurriculum/core/templates/core/home.html:13
+msgid "Games"
+msgstr "Jogos"
+
+#: vwcurriculum/core/templates/core/home.html:14
+msgid "Artificial Intelligence"
+msgstr "Inteligência Artificial"
+
+#: vwcurriculum/core/templates/core/home.html:16
+msgid "UX"
+msgstr "UX"
+
+#: vwcurriculum/core/templates/core/home.html:17
+msgid "Embedded systems"
+msgstr "Sistemas Embarcados"
 
 #: vwcurriculum/core/templates/core/navbar.html:24
 #: vwcurriculum/core/templates/core/profile.html:6
@@ -178,12 +243,12 @@ msgid "Profile"
 msgstr "Perfil"
 
 #: vwcurriculum/core/templates/core/navbar.html:25
-#: vwcurriculum/core/templates/core/skills.html:6
+#: vwcurriculum/core/templates/core/skills.html:7
 msgid "Skills"
 msgstr "Habilidades"
 
 #: vwcurriculum/core/templates/core/navbar.html:27
-#: vwcurriculum/core/templates/core/projects.html:6
+#: vwcurriculum/core/templates/core/projects.html:7
 msgid "Projects"
 msgstr "Projetos"
 
@@ -221,44 +286,44 @@ msgid "High School"
 msgstr "Ensino Médio"
 
 #: vwcurriculum/core/templates/core/profile.html:48
-msgid "Languages"
+msgid "Language"
 msgstr "Idiomas"
 
 #: vwcurriculum/core/templates/core/profile.html:67
 msgid "Areas of interest"
 msgstr "Áreas de interesse"
 
-#: vwcurriculum/core/templates/core/projects.html:14
+#: vwcurriculum/core/templates/core/projects.html:15
 #, fuzzy
 #| msgid "Search projects..."
 msgid "Search Project..."
 msgstr "Pesquisar projetos"
 
-#: vwcurriculum/core/templates/core/projects.html:32
-#: vwcurriculum/core/templates/core/projects.html:71
+#: vwcurriculum/core/templates/core/projects.html:33
+#: vwcurriculum/core/templates/core/projects.html:72
 msgid "until"
 msgstr "até"
 
-#: vwcurriculum/core/templates/core/projects.html:37
+#: vwcurriculum/core/templates/core/projects.html:38
 msgid "View Project"
 msgstr "Ver projeto"
 
-#: vwcurriculum/core/templates/core/projects.html:49
+#: vwcurriculum/core/templates/core/projects.html:50
 msgid "Project voluntary"
 msgstr "Projeto voluntário"
 
-#: vwcurriculum/core/templates/core/projects.html:79
+#: vwcurriculum/core/templates/core/projects.html:80
 msgid "Link to project"
 msgstr "Link para o projeto"
 
-#: vwcurriculum/core/templates/core/projects.html:92
+#: vwcurriculum/core/templates/core/projects.html:93
 msgid "There are no projects registered"
 msgstr "Não há projetos"
 
-#: vwcurriculum/core/templates/core/skills.html:23
+#: vwcurriculum/core/templates/core/skills.html:24
 msgid "Level"
 msgstr "Nível"
 
-#: vwcurriculum/core/templates/core/skills.html:39
+#: vwcurriculum/core/templates/core/skills.html:40
 msgid "There are no skills registered"
 msgstr "Não há habilidades registradas"

@@ -191,7 +191,7 @@ html {
 }
 
 /* Esticar o UL até os 4 cantos do banner */
-.banner-words-pespective {
+.banner-words {
   position: absolute;
   top: 0;
   left: 0;
@@ -210,6 +210,7 @@ html {
 .mobile {
   bottom: 15%;
   left: 53%;
+  opacity: .9;
   -webkit-transform: translate(-50%, -50%) rotate(42deg) translateZ(4px);
   -moz-transform: translate(-50%, -50%) rotate(42deg) translateZ(4px);
   -ms-transform: translate(-50%, -50%) rotate(42deg) translateZ(4px);
@@ -219,6 +220,7 @@ html {
 .web {
   bottom: 43%;
   left: 22%;
+  opacity: .8;
   -webkit-transform: translate(-50%, -50%) rotate(-28deg) translateZ(4px);
   -moz-transform: translate(-50%, -50%) rotate(-28deg) translateZ(4px);
   -ms-transform: translate(-50%, -50%) rotate(-28deg) translateZ(4px);
@@ -228,7 +230,6 @@ html {
 .games {
   top: 56%;
   left: 29%;
-  font-size: 400%;
   -webkit-transform: translate(-50%, -50%) rotate(36deg) translateZ(4px);
   -moz-transform: translate(-50%, -50%) rotate(36deg) translateZ(4px);
   -ms-transform: translate(-50%, -50%) rotate(36deg) translateZ(4px);
@@ -238,6 +239,7 @@ html {
 .intelligence {
   top: 127%;
   left: 55%;
+  opacity: .7;
   -webkit-transform: translate(-50%, -50%) rotate(-10deg) translateZ(4px);
   -moz-transform: translate(-50%, -50%) rotate(-10deg) translateZ(4px);
   -ms-transform: translate(-50%, -50%) rotate(-10deg) translateZ(4px);
@@ -247,6 +249,7 @@ html {
 .design {
   top: 92%;
   left: 28%;
+  opacity: .5;
   -webkit-transform: translate(-50%, -50%) rotate(-55deg) translateZ(4px);
   -moz-transform: translate(-50%, -50%) rotate(-55deg) translateZ(4px);
   -ms-transform: translate(-50%, -50%) rotate(-55deg) translateZ(4px);
@@ -256,6 +259,7 @@ html {
 .ux {
   top: 108%;
   left: 75%;
+  opacity: .7;
   -webkit-transform: translate(-50%, -50%) rotate(15deg) translateZ(4px);
   -moz-transform: translate(-50%, -50%) rotate(15deg) translateZ(4px);
   -ms-transform: translate(-50%, -50%) rotate(15deg) translateZ(4px);
@@ -265,8 +269,9 @@ html {
 .system {
   bottom: 50%;
   left: 46%;
+  opacity: .4;
   -webkit-transform: translate(-50%, -50%) rotate(-20deg) translateZ(1px);
   -moz-transform: translate(-50%, -50%) rotate(-20deg) translateZ(1px);
   -ms-transform: translate(-50%, -50%) rotate(-20deg) translateZ(1px);
-  transform: translate(-50%, -50%) rotate(0deg) translateZ(1px) scale(0.25);
+  transform: translate(-50%, -50%) rotate(0deg) translateZ(0) scale(0.25);
 }
