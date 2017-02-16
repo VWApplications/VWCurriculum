@@ -178,6 +178,7 @@ class Interest(models.Model):
     verbose_name_plural = 'Áreas de interesse'
     ordering = ['title']
 
+
 class Link(models.Model):
   title = models.CharField('Título', max_length=100)
   link = models.URLField('Link')

@@ -1,5 +1,5 @@
 import datetime
-from django.test import TestCase, Client, override_settings
+from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 from vwcurriculum.core.models import Profile, Skill, Certificate, Project, Experience
 from django.core.paginator import Paginator

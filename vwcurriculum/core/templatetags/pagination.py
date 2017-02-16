@@ -1,6 +1,8 @@
 from django.template import Library
 
+
 register = Library()
+
 
 @register.inclusion_tag('core/pagination.html')
 def pagination(request, paginator, current_page, query, redirect):
