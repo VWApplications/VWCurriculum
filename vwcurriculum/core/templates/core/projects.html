@@ -54,7 +54,7 @@
                 <p class="flow-text"><b>{% trans 'Description' %}:</b></p>
                 <p class="flow-text">{{project.description|linebreaksbr}}</p>
                 {% if project.files.exists %}
-                  <ul class="collection with-header">
+                  <ul class="collection with-header hide-on-med-and-down">
                     <li class="collection-header"><h4>{% trans 'Files' %}</h4></li>
                     {% for file in project.files.all %}
                     <li class="collection-item">
