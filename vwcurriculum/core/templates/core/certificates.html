@@ -39,7 +39,11 @@
                 <div class="modal-content">
                   <h4>{{certificate}}<span class="badge">{{certificate.category}}</span></h4>
                   <div class="divider"></div>
-                  <img src="{{certificate.document.url}}" alt="{{certificate}}" class="responsive-img photo materialboxed"/>
+                  {% if certificate.document %}
+                    <img src="{{certificate.document.url}}" alt="{{certificate}}" class="responsive-img photo materialboxed"/>
+                  {% else %}
+                    <img src="{% static 'core/img/404.jpg' %}" alt="Not Found" class="responsive-img photo materialboxed"/>
+                  {% endif %}
                 </div>
                 <div class="modal-footer">
                   {% if certificate.url %}
