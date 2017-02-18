@@ -38,4 +38,5 @@ exclude_paths:
   - "**/migrations/**.py"
   - "**/__init__.py"
   - "vwcurriculum/core/tests/**.py"
+  - "vwcurriculum/staticfiles/"
 
